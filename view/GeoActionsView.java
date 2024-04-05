@@ -166,4 +166,84 @@ public class GeoActionsView extends JPanel {
     public JButton getBSelectionner() {
         return this.boutonSelection;
     }
+
+    public JButton getBDeplacement(){
+        return this.boutonDeplacement;
+    }
+
+    public JButton getBZoomAvant(){
+        return this.boutonZoomAvant;
+    }
+
+    public JButton getBZoomArriere(){
+        return this.boutonZoomArriere;
+    }
+
+    public JButton getBPoint(){
+        return this.boutonPoint;
+    }
+
+    public JButton getBSegment(){
+        return this.boutonSegment;
+    }
+
+    public JButton getBDroite(){
+        return this.boutonDroite;
+    }
+
+    public JButton getBTriangle(){
+        return this.boutonTriangle;
+    }
+
+    public JButton getBCarre(){
+        return this.boutonCarre;
+    }
+
+    public JButton getBRectangle(){
+        return this.boutonRectangle;
+    }
+
+    public JButton getBLosange(){
+        return this.boutonLosange;
+    }
+
+    public JButton getBCercle(){
+        return this.boutonCercle;
+    }
+
+    public JButton getBEllipse(){
+        return this.boutonEllipse;
+    }
+
+    public JButton getBCouleurBlanc(){
+        return this.boutonCouleurBlanc;
+    }
+
+    public JButton getBCouleurNoir(){
+        return this.boutonCouleurNoir;
+    }
+
+    public JButton getBCouleurGris(){
+        return this.boutonCouleurGris;
+    }
+
+    public JButton getBCouleurMarron(){
+        return this.boutonCouleurMarron;
+    }
+
+    public JButton getBCouleurRouge(){
+        return this.boutonCouleurRouge;
+    }
+
+    public JButton getBCouleurJaune(){
+        return this.boutonCouleurJaune;
+    }
+
+    public JButton getBCouleurVert(){
+        return this.boutonCouleurVert;
+    }
+
+    public JButton getBCouleurBleu(){
+        return this.boutonCouleurBleu;
+    }
 }

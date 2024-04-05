@@ -120,6 +120,62 @@ public class GeoAnalytiqueControleur {
         .addActionListener(e -> {
             
         });
+
+        // recuperer bouton couleurs blanc et ajouter evenement
+        panelBouton
+        .getBCouleurBlanc()
+        .addActionListener(e -> {
+            
+        });
+
+        // recuperer bouton couleurs noir et ajouter evenement
+        panelBouton
+        .getBCouleurNoir()
+        .addActionListener(e -> {
+            
+        });
+
+        // recuperer bouton couleurs gris et ajouter evenement
+        panelBouton
+        .getBCouleurGris()
+        .addActionListener(e -> {
+            
+        });
+
+        // recuperer bouton couleurs marron et ajouter evenement
+        panelBouton
+        .getBCouleurMarron()
+        .addActionListener(e -> {
+            
+        });
+
+        // recuperer bouton couleurs rouge et ajouter evenement
+        panelBouton
+        .getBCouleurRouge()
+        .addActionListener(e -> {
+            
+        });
+
+        // recuperer bouton couleurs jaune et ajouter evenement
+        panelBouton
+        .getBCouleurJaune()
+        .addActionListener(e -> {
+            
+        });
+
+        // recuperer bouton couleurs vert et ajouter evenement
+        panelBouton
+        .getBCouleurVert()
+        .addActionListener(e -> {
+            
+        });
+
+        // recuperer bouton couleurs bleu et ajouter evenement
+        panelBouton
+        .getBCouleurBleu()
+        .addActionListener(e -> {
+            
+        });
     }
 
     public void ajouterObject() {

@@ -1,5 +1,5 @@
 package exception;
 
-public class VisiteurException {
+public class VisiteurException extends Exception{
     
 }
