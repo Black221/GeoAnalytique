@@ -9,6 +9,7 @@ public class GeoAnalytiqueGUI extends JFrame {
     
     GeoRepereGUI panelRepere;
     GeoInfoGUI panelInfo;
+    GeoBoutonGUI panelBouton;
     /*
      * Constructeur de la classe GeoAnalytiqueGUI
      * 
@@ -37,6 +38,10 @@ public class GeoAnalytiqueGUI extends JFrame {
         JPanel panel = new JPanel();
         panel.setLayout(new BorderLayout());
 
+        //Panneau haut
+        panelBouton = new GeoBoutonGUI();
+        panel.add(panelBouton, BorderLayout.NORTH);
+
         //Panneau de gauche
         panelRepere = new GeoRepereGUI();
         panel.add(panelRepere, BorderLayout.CENTER);
@@ -44,7 +49,6 @@ public class GeoAnalytiqueGUI extends JFrame {
 
         //Panneau de droite
         panelInfo = new GeoInfoGUI();
-
         panel.add(panelInfo, BorderLayout.EAST);
 
        
