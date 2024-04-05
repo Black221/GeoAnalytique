@@ -1,5 +1,6 @@
 package gui;
 
+import view.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -7,9 +8,9 @@ import java.awt.event.ActionListener;
 
 public class GeoAnalytiqueGUI extends JFrame {
     
-    GeoRepereGUI panelRepere;
-    GeoInfoGUI panelInfo;
-    GeoBoutonGUI panelBouton;
+    private GeoAnalytiqueView panelRepere;
+    private GeoInfoView panelInfo;
+    private GeoActionsView panelBouton;
     /*
      * Constructeur de la classe GeoAnalytiqueGUI
      * 
@@ -39,22 +40,34 @@ public class GeoAnalytiqueGUI extends JFrame {
         panel.setLayout(new BorderLayout());
 
         //Panneau haut
-        panelBouton = new GeoBoutonGUI();
+        panelBouton = new GeoActionsView();
         panel.add(panelBouton, BorderLayout.NORTH);
 
         //Panneau de gauche
-        panelRepere = new GeoRepereGUI();
+        panelRepere = new GeoAnalytiqueView();
         panel.add(panelRepere, BorderLayout.CENTER);
 
 
         //Panneau de droite
-        panelInfo = new GeoInfoGUI();
+        panelInfo = new GeoInfoView();
         panel.add(panelInfo, BorderLayout.EAST);
 
        
         this.add(panel, BorderLayout.CENTER);
         
         this.setVisible(true);
+    }
+
+    public GeoAnalytiqueView getPanelRepere() {
+        return panelRepere;
+    }
+
+    public GeoInfoView getPanelInfo() {
+        return panelInfo;
+    }
+
+    public GeoActionsView getPanelBouton() {
+        return panelBouton;
     }
 
 

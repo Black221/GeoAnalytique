@@ -1,11 +1,11 @@
-package gui;
+package view;
 
-import java.awt.*;
 import javax.swing.*;
+import java.awt.*;
 
-public class GeoInfoGUI extends JPanel {
+public class GeoInfoView extends JPanel {
     
-    public GeoInfoGUI() {
+    public GeoInfoView() {
         super();
         this.init();
     }
