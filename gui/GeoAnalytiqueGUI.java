@@ -17,7 +17,7 @@ public class GeoAnalytiqueGUI extends JFrame {
      */
     public GeoAnalytiqueGUI() {
         super("GeoAnalytique");
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//cette ligne permet de tuer le processus
         this.setSize(1200, 800);
         this.setLocationRelativeTo(null);
         this.setLayout(new BorderLayout());
@@ -26,12 +26,14 @@ public class GeoAnalytiqueGUI extends JFrame {
         JMenuBar menuBar = new JMenuBar();
         JMenu menu = new JMenu("Fichier");
         JMenuItem menuItem = new JMenuItem("Quitter");
-        menuItem.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                System.exit(0);
-            }
-        });
+        JMenuItem menuItem2 = new JMenuItem("Ouvrir");
+        // menuItem.addActionListener(new ActionListener() {
+        //     public void actionPerformed(ActionEvent e) {
+        //         System.exit(0);
+        //     }
+        // });
         menu.add(menuItem);
+        menu.add(menuItem2);
         menuBar.add(menu);
         this.setJMenuBar(menuBar);
 

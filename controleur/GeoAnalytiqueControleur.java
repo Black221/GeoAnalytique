@@ -28,12 +28,17 @@ public class GeoAnalytiqueControleur {
 
         // recuperer champs text dans le repere
         JTextField tf = panelRepere.field;
-
+        
         // recuperer bouton selectionner et ajouter evenement
         panelBouton
         .getBSelectionner()
         .addActionListener(e -> {
-            
+            String text = tf.getText();
+            if(text.equals("0")){
+                tf.setText("1");
+            }else{
+                tf.setText("0");
+            }
         });
 
         // recuperer bouton deplacement et ajouter evenement

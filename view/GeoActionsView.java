@@ -5,37 +5,37 @@ import java.awt.*;
 
 public class GeoActionsView extends JPanel {
 
-    public JPanel panelOutils;
-    public JPanel panelFigures;
-    public JPanel panelCouleurs;
+    private JPanel panelOutils;
+    private JPanel panelFigures;
+    private JPanel panelCouleurs;
 
     //Boutton outils
     private JButton boutonSelection;
-    public JButton boutonDeplacement;
-    public JButton boutonZoomAvant;
-    public JButton boutonZoomArriere;
+    private JButton boutonDeplacement;
+    private JButton boutonZoomAvant;
+    private JButton boutonZoomArriere;
 
     //Boutton figures
-    public JButton boutonPoint;
-    public JButton boutonSegment;
-    public JButton boutonDroite;
-    public JButton boutonTriangle;
-    public JButton boutonCarre;
-    public JButton boutonRectangle;
-    public JButton boutonLosange;
-    public JButton boutonCercle;
-    public JButton boutonEllipse;
+    private JButton boutonPoint;
+    private JButton boutonSegment;
+    private JButton boutonDroite;
+    private JButton boutonTriangle;
+    private JButton boutonCarre;
+    private JButton boutonRectangle;
+    private JButton boutonLosange;
+    private JButton boutonCercle;
+    private JButton boutonEllipse;
 
     //Boutton couleurs
-    public JButton boutonCouleurBlanc;
-    public JButton boutonCouleurNoir;
-    public JButton boutonCouleurGris;
-    public JButton boutonCouleurMarron;
+    private JButton boutonCouleurBlanc;
+    private JButton boutonCouleurNoir;
+    private JButton boutonCouleurGris;
+    private JButton boutonCouleurMarron;
 
-    public JButton boutonCouleurRouge;
-    public JButton boutonCouleurJaune;
-    public JButton boutonCouleurVert;
-    public JButton boutonCouleurBleu;
+    private JButton boutonCouleurRouge;
+    private JButton boutonCouleurJaune;
+    private JButton boutonCouleurVert;
+    private JButton boutonCouleurBleu;
     
 
     
@@ -56,7 +56,7 @@ public class GeoActionsView extends JPanel {
 
         /* -----------------------Outils---------------------------- */
         this.panelOutils = new JPanel();
-        this.panelOutils.setBackground(Color.RED);
+        // this.panelOutils.setBackground(Color.RED);
         this.panelOutils.setLayout(new BorderLayout());
         pb = new JPanel();
         pb.setLayout(new GridLayout(2, 2));
@@ -81,7 +81,7 @@ public class GeoActionsView extends JPanel {
 
         /* ---------------------------Figures------------------------- */
         this.panelFigures = new JPanel();
-        this.panelFigures.setBackground(Color.GREEN);
+        // this.panelFigures.setBackground(Color.GREEN);
         this.panelFigures.setLayout(new BorderLayout());
 
         pb = new JPanel();
@@ -122,7 +122,7 @@ public class GeoActionsView extends JPanel {
 
         /* -------------------------Couleurs-------------------------- */
         this.panelCouleurs = new JPanel();
-        this.panelCouleurs.setBackground(Color.BLUE);
+        // this.panelCouleurs.setBackground(Color.BLUE);
         this.panelCouleurs.setLayout(new BorderLayout());
 
         pb = new JPanel();
