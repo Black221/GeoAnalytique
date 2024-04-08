@@ -1,5 +1,5 @@
 package geoanalytique;
-import geoanalytique.*;
+import geoanalytique.controleur.GeoAnalytiqueControleur;
 
 public class Main {
 

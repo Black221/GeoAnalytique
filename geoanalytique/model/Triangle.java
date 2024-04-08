@@ -15,12 +15,12 @@ public class Triangle extends Polygone {
      * @description: Crée un triangle avec trois points
      */
     public Triangle (Point p1, Point p2, Point p3) {
-        super(new Segment[]{
+        super("Tri"+ Triangle.compteur, // "Tri" pour "Triangle"
+            new Segment[]{
             new Segment(p1, p2),
             new Segment(p2, p3),
             new Segment(p3, p1)
         });
-        this.setNom("T" + Triangle.compteur);
         Triangle.compteur++;
     }
 
@@ -34,13 +34,12 @@ public class Triangle extends Polygone {
      * @description: Crée un triangle avec trois points et une couleur
      */
     public Triangle (Point p1, Point p2, Point p3, Color couleur) {
-        super(new Segment[]{
+        super("Tri"+ Triangle.compteur, // "Tri" pour "Triangle"
+            new Segment[]{
             new Segment(p1, p2),
             new Segment(p2, p3),
             new Segment(p3, p1)
         }, couleur);
-        this.setNom("T" + Triangle.compteur);
-        
         Triangle.compteur++;
     }
 

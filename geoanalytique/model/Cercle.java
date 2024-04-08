@@ -12,6 +12,6 @@ public class Cercle extends Ellipse {
     }
 
     public String toString() {
-        return "Cercle de rayon " + demiGrandAxe;
+        return "Cercle de rayon " + this.getDemiGrandAxe();
     }
 }

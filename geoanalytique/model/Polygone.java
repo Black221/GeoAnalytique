@@ -20,11 +20,6 @@ public abstract class Polygone extends Surface {
         this.fusionner();
     }
 
-    public Polygone(Segment cotes[]) {
-        this.cotes = cotes;
-        this.fusionner();
-    }
-
     /*
      * @description: fusionne les cotes du polygone pour avoir les memes references pour les points qui se resemble
      */
