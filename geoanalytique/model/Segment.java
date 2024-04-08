@@ -6,7 +6,7 @@ public class Segment extends  Droite{
     
     private static int compteur = 0;
 
-    /*
+    /**
      * Constructeur de la classe Segment
      * @param p1: premier point du segment
      * @param p2: deuxième point du segment

@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"geoanalytique.controleur"},{"l":"geoanalytique.exception"},{"l":"geoanalytique.graphique"},{"l":"geoanalytique.gui"},{"l":"geoanalytique.model"},{"l":"geoanalytique.util"},{"l":"geoanalytique.view"}];updateSearchResults();
