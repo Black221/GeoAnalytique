@@ -2,13 +2,15 @@ package geoanalytique.view;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 
-public class GeoAnalytiqueView extends JPanel {
+public class GeoAnalytiqueView extends JPanel implements MouseMotionListener {
     
     public JTextField field;
 
     public GeoAnalytiqueView() {
         super();
+        this.addMouseMotionListener(this);
         this.init();
     }
     
@@ -50,6 +52,9 @@ public class GeoAnalytiqueView extends JPanel {
         for (int i = this.getHeight()/2; i < this.getHeight(); i += 50) {
             g.drawLine(this.getWidth()/2 - 5, i, this.getWidth()/2 + 5, i);
         }
+
+        /* representer point */
+        g.setColor(Color.RED);
+        g.drawOval(x, y, 2, 2);
     };
-    
 }

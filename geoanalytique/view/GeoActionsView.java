@@ -9,41 +9,35 @@ public class GeoActionsView extends JPanel {
     private JPanel panelFigures;
     private JPanel panelCouleurs;
 
-    //Boutton outils
-    private JButton boutonSelection;
-    private JButton boutonDeplacement;
-    private JButton boutonZoomAvant;
-    private JButton boutonZoomArriere;
+    /**
+     * 
+     */
+    public enum Outils {
+        SELECTION, DEPLACEMENT, ZOOMAVANT, ZOOMARRIERE
+    }
 
-    //Boutton figures
-    private JButton boutonPoint;
-    private JButton boutonSegment;
-    private JButton boutonDroite;
-    private JButton boutonTriangle;
-    private JButton boutonCarre;
-    private JButton boutonRectangle;
-    private JButton boutonLosange;
-    private JButton boutonCercle;
-    private JButton boutonEllipse;
+    private JButton boutonsOutils[] = new JButton[4];
 
+    public enum Figures {
+        POINT, SEGMENT, DROITE, TRIANGLE, CARRE, RECTANGLE, LOSANGE, CERCLE, ELLIPSE
+    }
+    private JButton boutonsFigures[] = new JButton[9];
+
+    public enum Couleurs {
+        BLANC, NOIR, GRIS, MARRON, ROUGE, JAUNE, VERT, BLEU
+    }
     //Boutton couleurs
-    private JButton boutonCouleurBlanc;
-    private JButton boutonCouleurNoir;
-    private JButton boutonCouleurGris;
-    private JButton boutonCouleurMarron;
-
-    private JButton boutonCouleurRouge;
-    private JButton boutonCouleurJaune;
-    private JButton boutonCouleurVert;
-    private JButton boutonCouleurBleu;
+    private JButton [] boutonsCouleurs = new JButton[8];
     
-
     
     public GeoActionsView() {
         super();
         this.init();
     }
 
+    /**
+     * Initialisation de la vue
+     */
     public void init() {
         this.setBorder(BorderFactory.createLineBorder(Color.black));
         this.setBackground(Color.WHITE);        
@@ -52,7 +46,6 @@ public class GeoActionsView extends JPanel {
 
         JPanel pb;
         JTextField tf;
-        
 
         /* -----------------------Outils---------------------------- */
         this.panelOutils = new JPanel();
@@ -61,15 +54,10 @@ public class GeoActionsView extends JPanel {
         pb = new JPanel();
         pb.setLayout(new GridLayout(2, 2));
 
-        this.boutonSelection = new JButton("Selection");
-        this.boutonDeplacement = new JButton("Deplacement");
-        this.boutonZoomAvant = new JButton("Zoom Avant");
-        this.boutonZoomArriere = new JButton("Zoom Arriere");
-
-        pb.add(this.boutonSelection);
-        pb.add(this.boutonDeplacement);
-        pb.add(this.boutonZoomAvant);
-        pb.add(this.boutonZoomArriere);
+        for (int i = 0; i < 4; i++) {
+            this.boutonsOutils[i] = new JButton(Outils.values()[i].toString());
+            pb.add(this.boutonsOutils[i]);
+        }
 
         this.panelOutils.add(pb, BorderLayout.CENTER);
         tf = new JTextField("Outils", 10);
@@ -87,30 +75,10 @@ public class GeoActionsView extends JPanel {
         pb = new JPanel();
         pb.setLayout(new GridLayout(3, 3));
 
-        this.boutonPoint = new JButton("Point");
-        this.boutonSegment = new JButton("Segment");
-        this.boutonDroite = new JButton("Droite");
-        this.boutonTriangle = new JButton("Triangle");
-        this.boutonCarre = new JButton("Carre");
-        this.boutonRectangle = new JButton("Rectangle");
-        this.boutonLosange = new JButton("Losange");
-        this.boutonCercle = new JButton("Cercle");
-        this.boutonEllipse = new JButton("Ellipse");
-
-        //ligne 1
-        pb.add(this.boutonPoint);
-        pb.add(this.boutonSegment);
-        pb.add(this.boutonDroite);
-
-        //ligne 2
-        pb.add(this.boutonTriangle);
-        pb.add(this.boutonCarre);
-        pb.add(this.boutonRectangle);
-
-        //ligne 3
-        pb.add(this.boutonLosange);
-        pb.add(this.boutonCercle);
-        pb.add(this.boutonEllipse);
+        for (int i = 0; i < 9; i++) {
+            this.boutonsFigures[i] = new JButton(Figures.values()[i].toString());
+            pb.add(this.boutonsFigures[i]);
+        }
 
         this.panelFigures.add(pb, BorderLayout.CENTER);
         tf = new JTextField("Figures", 10);
@@ -128,26 +96,10 @@ public class GeoActionsView extends JPanel {
         pb = new JPanel();
         pb.setLayout(new GridLayout(2, 4));
 
-        this.boutonCouleurBlanc = new JButton("Blanc");
-        this.boutonCouleurNoir = new JButton("Noir");
-        this.boutonCouleurGris = new JButton("Gris");
-        this.boutonCouleurMarron = new JButton("Marron");
-        this.boutonCouleurRouge = new JButton("Rouge");
-        this.boutonCouleurVert = new JButton("Vert");
-        this.boutonCouleurBleu = new JButton("Bleu");
-        this.boutonCouleurJaune = new JButton("Jaune");
-
-        //ligne 1
-        pb.add(this.boutonCouleurBlanc);
-        pb.add(this.boutonCouleurNoir);
-        pb.add(this.boutonCouleurGris);
-        pb.add(this.boutonCouleurMarron);
-
-        //ligne 2
-        pb.add(this.boutonCouleurRouge);
-        pb.add(this.boutonCouleurVert);
-        pb.add(this.boutonCouleurBleu);
-        pb.add(this.boutonCouleurJaune);
+        for (int i = 0; i < 8; i++) {
+            this.boutonsCouleurs[i] = new JButton(Couleurs.values()[i].toString());
+            pb.add(this.boutonsCouleurs[i]);
+        }
 
         this.panelCouleurs.add(pb, BorderLayout.CENTER);
         tf = new JTextField("Couleurs", 10);
@@ -163,87 +115,19 @@ public class GeoActionsView extends JPanel {
 
     }
 
-    public JButton getBSelectionner() {
-        return this.boutonSelection;
+    /**
+     * 
+     * @return
+     */
+    public JButton [] getBoutonsOutils() {
+        return this.boutonsOutils;
     }
 
-    public JButton getBDeplacement(){
-        return this.boutonDeplacement;
+    public JButton [] getBoutonsFigures() {
+        return this.boutonsFigures;
     }
 
-    public JButton getBZoomAvant(){
-        return this.boutonZoomAvant;
-    }
-
-    public JButton getBZoomArriere(){
-        return this.boutonZoomArriere;
-    }
-
-    public JButton getBPoint(){
-        return this.boutonPoint;
-    }
-
-    public JButton getBSegment(){
-        return this.boutonSegment;
-    }
-
-    public JButton getBDroite(){
-        return this.boutonDroite;
-    }
-
-    public JButton getBTriangle(){
-        return this.boutonTriangle;
-    }
-
-    public JButton getBCarre(){
-        return this.boutonCarre;
-    }
-
-    public JButton getBRectangle(){
-        return this.boutonRectangle;
-    }
-
-    public JButton getBLosange(){
-        return this.boutonLosange;
-    }
-
-    public JButton getBCercle(){
-        return this.boutonCercle;
-    }
-
-    public JButton getBEllipse(){
-        return this.boutonEllipse;
-    }
-
-    public JButton getBCouleurBlanc(){
-        return this.boutonCouleurBlanc;
-    }
-
-    public JButton getBCouleurNoir(){
-        return this.boutonCouleurNoir;
-    }
-
-    public JButton getBCouleurGris(){
-        return this.boutonCouleurGris;
-    }
-
-    public JButton getBCouleurMarron(){
-        return this.boutonCouleurMarron;
-    }
-
-    public JButton getBCouleurRouge(){
-        return this.boutonCouleurRouge;
-    }
-
-    public JButton getBCouleurJaune(){
-        return this.boutonCouleurJaune;
-    }
-
-    public JButton getBCouleurVert(){
-        return this.boutonCouleurVert;
-    }
-
-    public JButton getBCouleurBleu(){
-        return this.boutonCouleurBleu;
+    public JButton [] getBoutonsCouleurs() {
+        return this.boutonsCouleurs;
     }
 }

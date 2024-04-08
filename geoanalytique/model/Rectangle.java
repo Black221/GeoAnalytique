@@ -5,12 +5,10 @@ public class Rectangle extends Polygone {
 
     private static int compteur = 0;
 
-    /*
+    /**
      * Constructeur de la classe Rectangle
      * @param x: abscisse du point en haut à gauche du rectangle
      * @param y: abscisse du point en haut à gauche du rectangle
-     * 
-     * @description: Crée un rectangle avec un point en haut à gauche
      */
     public Rectangle(double x, double y, double l1, double l2) {
         super(
@@ -25,14 +23,29 @@ public class Rectangle extends Polygone {
         this.setNom("Rec" + Rectangle.compteur);
         Rectangle.compteur++;
     }
-
     /*
+     public Rect() {
+        super(nom, new Segment[4]);
+
+        Point p1 = ...
+        Point p2 = ...
+        Point p3 = ...
+        Point p4 = ...
+
+        this.setCotes(
+            new Segment(p1, p2), 
+            new Segment(p2, p3), 
+            new Segment(p3, p4), 
+            new Segment(p4, p1)
+        );
+     }
+     */
+
+    /**
      * Constructeur de la classe Rectangle
      * @param x: abscisse du point en haut à gauche du rectangle
      * @param y: abscisse du point en haut à gauche du rectangle
      * @param couleur: couleur du rectangle
-     * 
-     * @description: Crée un rectangle avec un point en haut à gauche et une couleur
      */
     public Rectangle(double x, double y, double l1, double l2, Color couleur) {
         super("Rec"+ compteur,
@@ -47,7 +60,7 @@ public class Rectangle extends Polygone {
         Rectangle.compteur++;
     }
 
-    /*
+    /**
      * @return: la longueur du rectangle
      */
     public double getLongueur() {
@@ -57,7 +70,7 @@ public class Rectangle extends Polygone {
         );
     }
 
-    /*
+    /**
      * @return: la largeur du rectangle
      */
     public double getLargeur() {
@@ -67,7 +80,7 @@ public class Rectangle extends Polygone {
         );
     }
 
-    /*
+    /**
      * @param dx: nombre de pixels
      * @param pivot: segment pivot qui reste fixe
      * @description: modifie la longueur du rectangle
@@ -79,8 +92,13 @@ public class Rectangle extends Polygone {
         }
         //si pivot = 0 on translate 2 de dx
         if (pivot == 0) {
-            this.cotes[2].getPoint1().setX(this.cotes[2].getPoint1().getX() + dx);
-            this.cotes[2].getPoint2().setX(this.cotes[2].getPoint2().getX() + dx);
+            this.cotes[2].getPoint1().setX(
+                this.cotes[2].getPoint1().getX() + dx
+            );
+            this.cotes[2].getPoint2().setX(
+                this.cotes[2].getPoint2().getX() + dx
+            );
+
         } else {
             this.cotes[pivot % 2].getPoint1().setX(this.cotes[pivot % 2].getPoint1().getX() + dx);
             this.cotes[pivot % 2].getPoint2().setX(this.cotes[pivot % 2].getPoint2().getX() + dx);
@@ -88,16 +106,16 @@ public class Rectangle extends Polygone {
     }
 
 
-    /*
+    /**
      * @Return: retourne l'aire du rectangle
      */
     public double aire() {
         return this.getLongueur() * this.getLargeur();
     }
 
-    /*
-     * @description: Affiche les coordonnées des points du rectangle
-     * @return: les coordonnées des points du rectangle en format texte
+    /**
+     * Affiche les coordonnées des points du rectangle
+     * @return les coordonnées des points du rectangle en format texte
      */
     @Override
     public String afficher() {

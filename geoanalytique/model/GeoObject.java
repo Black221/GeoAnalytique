@@ -2,8 +2,8 @@ package geoanalytique.model;
 
 import java.awt.Color;
 
-/*
- * @Description: Represents a geometric object.
+/**
+ * Represents a geometric object.
  */
 public abstract class GeoObject {
 
@@ -12,9 +12,9 @@ public abstract class GeoObject {
     boolean estSelectionne = false;
 
     /**
-     * Constructeur de la 
-     * @param nom
-     * @param couleur
+     * Constructeur de la classe GeoObject
+     * @param nom nom de la classe
+     * @param couleur couleur de l'objet
      */
     public GeoObject(String nom, Color couleur) {
         this.nom = nom;
@@ -23,64 +23,63 @@ public abstract class GeoObject {
 
     /**
      * Constructeur de la classe GeoObject
-     * @param nom
+     * @param nom nom de la classe
      */
     public GeoObject(String nom) {
         this(nom, Color.BLACK);
     }
 
     /**
-     * Constructeur de la classe GeoObject
-     * @param couleur
+     * Methode pour recuperer le nom de l'objet
+     * @return le nom de l'objet
      */
     public String getNom() {
         return nom;
     }
 
     /**
-     * 
-     * @return
+     * Methode pour recuperer la couleur de l'objet
+     * @return la couleur de l'objet
      */
     public Color getCouleur() {
         return couleur;
     }
 
     /**
-     * 
-     * @param nom
+     * Methode pour modifier le nom de l'objet
+     * @param nom le nouveau nom de l'objet
      */
     public void setNom(String nom) {
         this.nom = nom;
     }
 
     /**
-     * 
-     * @param couleur
+     * Methode pour modifier la couleur de l'objet
+     * @param couleur la nouvelle couleur de l'objet
      */
     public void setCouleur(Color couleur) {
         this.couleur = couleur;
     }
 
     /**
-     * 
-     * @return
+     * Methode pour savoir si l'objet est selectionne
+     * @return true si l'objet est selectionne, false sinon
      */
     public boolean estSelectionne() {
         return estSelectionne;
     }
 
     /**
-     * 
-     * @param estSelectionne
+     * Methode pour modifier l'etat de selection de l'objet
+     * @param estSelectionne true si l'objet est selectionne, false sinon
      */
     public void setEstSelectionne(boolean estSelectionne) {
         this.estSelectionne = estSelectionne;
     }
 
-    //public abstract void deplacer (GCoordonnee coordonnee);
     /**
-     * 
-     * @return
+     * Methode pour afficher l'objet
+     * @return une chaine de caractere representant l'objet
      */
     public abstract String afficher ();
 }
