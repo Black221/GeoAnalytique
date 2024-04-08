@@ -14,10 +14,9 @@ public class Point extends GeoObject{
      * @param y: ordonnée du point
      */
     public Point (double x, double y) {
-        super("P");
+        super("P"+ Point.compteur);
         this.x = x;
         this.y = y;
-        this.setNom("P-" + Point.compteur);
         Point.compteur++;
     }
 
@@ -28,10 +27,9 @@ public class Point extends GeoObject{
      * @param couleur: couleur du point
      */
     public Point (double x, double y, Color couleur) {
-        super("P", couleur);
+        super("P"+Point.compteur, couleur);
         this.x = x;
         this.y = y;
-        this.setnom("P-" + Point.compteur);
         Point.compteur++;
     }
 
@@ -51,20 +49,8 @@ public class Point extends GeoObject{
         this.y = y;
     }
 
-    /*
-     * Constructeur de la classe
-     * @param coordonnee: coordonnées de type GCoordonnee
-     * 
-     * @description: Déplace le point aux coordonnées spécifiées
-     */
-    // @Override
-    // public void deplacer (GCoordonnee coordonnee) {
-    //     this.x = coordonnee.getX();
-    //     this.y = coordonnee.getY();
-    // }
 
-    /*
-     * @description: Affiche les coordonnées du point
+    /**
      * @return: les coordonnées du point en format texte
      */
     @Override

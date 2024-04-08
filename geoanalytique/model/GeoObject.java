@@ -57,7 +57,7 @@ public abstract class GeoObject {
      * 
      * @param couleur
      */
-    public void setColor(Color couleur) {
+    public void setCouleur(Color couleur) {
         this.couleur = couleur;
     }
 

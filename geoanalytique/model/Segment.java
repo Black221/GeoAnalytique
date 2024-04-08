@@ -36,6 +36,16 @@ public class Segment extends  Droite{
         Segment.compteur++;
     }
 
+    /**
+     * Change la couleur du segment
+     * @param couleur 
+     */
+    public void setCouleur(Color couleur) {
+        super.setCouleur(couleur);
+        this.getPoint1().setCouleur(couleur);
+        this.getPoint2().setCouleur(couleur);
+    }
+
     /*
      * @return: la longueur du segment avec deux points
      */

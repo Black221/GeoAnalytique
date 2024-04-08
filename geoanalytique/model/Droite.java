@@ -3,7 +3,7 @@ package geoanalytique.model;
 import java.awt.Color;
 public class Droite extends GeoObject{
     
-    private static int compteur;
+    private static int compteur = 0;
     private Point [] points = new Point[2];
 
     /**
@@ -12,7 +12,7 @@ public class Droite extends GeoObject{
      * @param p2: deuxième point de la droite
      */
     public Droite (Point p1, Point p2) {
-        super("D" + Point.compteur);
+        super("D" + Droite.compteur);
         this.points[0] = p1;
         this.points[1] = p2;
 
@@ -26,7 +26,7 @@ public class Droite extends GeoObject{
      * @param couleur: couleur de la droite
      */
     public Droite (Point p1, Point p2, Color couleur) {
-        super("D" + Point.compteur, couleur);
+        super("D" + Droite.compteur, couleur);
         this.points[0] = p1;
         this.points[1] = p2;
 

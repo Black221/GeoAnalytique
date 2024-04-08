@@ -13,20 +13,16 @@ public class Rectangle extends Polygone {
      * @description: Crée un rectangle avec un point en haut à gauche
      */
     public Rectangle(double x, double y, double l1, double l2) {
-        super(new Segment[]{
-            new Segment(new Point(x, y), new Point(x + l1, y)),
-            new Segment(new Point(x + l1, y), new Point(x + l1, y + l2)),
-            new Segment(new Point(x + l1, y + l2), new Point(x, y + l2)),
-            new Segment(new Point(x, y + l2), new Point(x, y))
-        });
+        super(
+            "Rec"+ compteur,
+            new Segment[]{
+                new Segment(new Point(x, y), new Point(x + l1, y)),
+                new Segment(new Point(x + l1, y), new Point(x + l1, y + l2)),
+                new Segment(new Point(x + l1, y + l2), new Point(x, y + l2)),
+                new Segment(new Point(x, y + l2), new Point(x, y))
+            }
+        );
         this.setNom("Rec" + Rectangle.compteur);
-        if (l1 > l2) {
-            this.longeur = l1;
-            this.largeur = l2;
-        } else {
-            this.longeur = l2;
-            this.largeur = l1;
-        }
         Rectangle.compteur++;
     }
 
@@ -39,7 +35,8 @@ public class Rectangle extends Polygone {
      * @description: Crée un rectangle avec un point en haut à gauche et une couleur
      */
     public Rectangle(double x, double y, double l1, double l2, Color couleur) {
-        super(new Segment[]{
+        super("Rec"+ compteur,
+            new Segment[]{
             new Segment(new Point(x, y), new Point(x + l1, y)), // 1er cote horizontal
             new Segment(new Point(x + l1, y), new Point(x + l1, y + l2)), // 1er cote vertical
             new Segment(new Point(x + l1, y + l2), new Point(x, y + l2)), // 2er cote horizontal

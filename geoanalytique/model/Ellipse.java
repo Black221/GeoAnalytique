@@ -42,6 +42,19 @@ public class Ellipse extends Surface {
         return "Ellipse de demi grand axe " + demiGrandAxe + " et de demi petit axe " + demiPetitAxe;
     }
     
+    /**
+     * @return: le demi grand axe de l'ellipse
+     */
+    public double getDemiGrandAxe() {
+        return demiGrandAxe;
+    }
+
+    /**
+     * @return: le demi petit axe de l'ellipse
+     */
+    public double getDemiPetitAxe() {
+        return demiPetitAxe;
+    }
     
     /**
      * Methode qui retourne l'aire de l'ellipse
@@ -49,7 +62,7 @@ public class Ellipse extends Surface {
      */
     @Override
     public double aire() {
-        return Math.PI * demiGrandAxe * demiPetitAxe;
+        return Math.PI * this.getDemiGrandAxe() * this.getDemiPetitAxe();
     }
 
     /**
@@ -67,5 +80,10 @@ public class Ellipse extends Surface {
      */
     public boolean contient(Point p) {
         return Math.pow(p.getX(), 2) / Math.pow(demiGrandAxe, 2) + Math.pow(p.getY(), 2) / Math.pow(demiPetitAxe, 2) <= 1;
+    }
+
+    @Override
+    public String afficher() {
+        return "Ellipse " + this.getNom() + " de centre " + this.centre.afficher() + " de demi grand axe " + this.demiGrandAxe + " et de demi petit axe " + this.demiPetitAxe;
     }
 }
