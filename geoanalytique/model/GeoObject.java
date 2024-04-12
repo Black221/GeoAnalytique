@@ -1,7 +1,11 @@
 package geoanalytique.model;
 
 import java.awt.Color;
+import javax.swing.JPanel;
 
+import geoanalytique.graphique.Graphique;
+import geoanalytique.util.GeoObjectVisiteur;
+import geoanalytique.exception.VisiteurException;
 /**
  * Represents a geometric object.
  */
@@ -82,4 +86,7 @@ public abstract class GeoObject {
      * @return une chaine de caractere representant l'objet
      */
     public abstract String afficher ();
+    public abstract Graphique accept(GeoObjectVisiteur<Graphique> v) throws VisiteurException;
+
+    public abstract JPanel acceptJPanel(GeoObjectVisiteur<JPanel> v) throws VisiteurException;
 }

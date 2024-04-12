@@ -1,6 +1,11 @@
 package geoanalytique.model;
 
 import java.awt.Color;
+import javax.swing.JPanel;
+
+import geoanalytique.exception.VisiteurException;
+import geoanalytique.graphique.Graphique;
+import geoanalytique.util.GeoObjectVisiteur;
 
 /**
  * Classe Segment
@@ -77,5 +82,16 @@ public class Segment extends  Droite{
     @Override
     public String afficher() {
         return "- Segment " + this.getNom() + " : \n" + this.getPoint1().afficher() + "\n" + this.getPoint2().afficher();
+    }
+
+
+    @Override
+    public Graphique accept(GeoObjectVisiteur<Graphique> v) throws VisiteurException {
+        return v.visit(this);
+    }
+
+    @Override
+    public JPanel acceptJPanel(GeoObjectVisiteur<JPanel> v) throws VisiteurException {
+        return v.visit(this);
     }
 }

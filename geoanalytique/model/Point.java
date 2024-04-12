@@ -1,7 +1,11 @@
 package geoanalytique.model;
 
 import java.awt.Color;
+import javax.swing.JPanel;
 
+import geoanalytique.graphique.Graphique;
+import geoanalytique.util.GeoObjectVisiteur;
+import geoanalytique.exception.VisiteurException;
 /**
  * Classe Point
  */
@@ -78,4 +82,16 @@ public class Point extends GeoObject{
     public String afficher () {
         return ("[Point " + this.getNom() + " : (" + this.x + "|" + this.y + ")]");
     }
+
+    
+    @Override
+    public Graphique accept(GeoObjectVisiteur<Graphique> v) throws VisiteurException {
+        return v.visit(this);
+    }
+
+    @Override
+    public JPanel acceptJPanel(GeoObjectVisiteur<JPanel> v) throws VisiteurException {
+        return v.visit(this);
+    }
+
 }

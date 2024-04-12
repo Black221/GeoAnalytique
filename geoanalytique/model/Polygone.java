@@ -1,6 +1,11 @@
 package geoanalytique.model;
 
 import java.awt.Color;
+import javax.swing.JPanel;
+
+import geoanalytique.exception.VisiteurException;
+import geoanalytique.graphique.Graphique;
+import geoanalytique.util.GeoObjectVisiteur;
 
 
 /**
@@ -36,6 +41,17 @@ public abstract class Polygone extends Surface {
         this.fusionner();
     }
 
+    public Segment[] getCotes() {
+        return cotes;
+    }
+
+    public Point[] getSommets() {
+        Point[] sommets = new Point[this.cotes.length];
+        for (int i = 0; i < this.cotes.length; i++) {
+            sommets[i] = this.cotes[i].getPoint1();
+        }
+        return sommets;
+    }
     /**
      * Methode pour fusionner les points des cotes du polygone
      */
@@ -56,5 +72,16 @@ public abstract class Polygone extends Surface {
             perimetre += cote.longueur();
         }
         return perimetre;
+    }
+
+
+    @Override
+    public Graphique accept(GeoObjectVisiteur<Graphique> v) throws VisiteurException {
+        return v.visit(this);
+    }
+
+    @Override
+    public JPanel acceptJPanel(GeoObjectVisiteur<JPanel> v) throws VisiteurException {
+        return v.visit(this);
     }
 }

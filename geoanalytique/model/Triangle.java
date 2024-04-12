@@ -2,6 +2,9 @@ package geoanalytique.model;
 
 import java.awt.Color;
 
+import geoanalytique.graphique.Graphique;
+import geoanalytique.util.GeoObjectVisiteur;
+
 public class Triangle extends Polygone {
     
     private static int compteur = 0;
@@ -73,4 +76,5 @@ public class Triangle extends Polygone {
      * @param pivot: segment pivot qui reste fixe
      */
     
+  
 }

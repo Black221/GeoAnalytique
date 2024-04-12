@@ -1,5 +1,6 @@
 package geoanalytique.model;
 
+import geoanalytique.util.GeoObjectVisiteur;
 import java.awt.Color;
 public class Rectangle extends Polygone {
 
@@ -7,20 +8,19 @@ public class Rectangle extends Polygone {
 
     /**
      * Constructeur de la classe Rectangle
-     * @param x: abscisse du point en haut à gauche du rectangle
-     * @param y: abscisse du point en haut à gauche du rectangle
+     * @param p: point en haut à gauche du rectangle
+     * @param l1: longueur du rectangle
+     * @param l2: largeur du rectangle
      */
-    public Rectangle(double x, double y, double l1, double l2) {
-        super(
-            "Rec"+ compteur,
+    public Rectangle(Point p, double l1, double l2) {
+        super("Rec"+ compteur,
             new Segment[]{
-                new Segment(new Point(x, y), new Point(x + l1, y)),
-                new Segment(new Point(x + l1, y), new Point(x + l1, y + l2)),
-                new Segment(new Point(x + l1, y + l2), new Point(x, y + l2)),
-                new Segment(new Point(x, y + l2), new Point(x, y))
+                new Segment(p, new Point(p.getX() + l1, p.getY())),
+                new Segment(new Point(p.getX() + l1, p.getY()), new Point(p.getX() + l1, p.getY() + l2)),
+                new Segment(new Point(p.getX() + l1, p.getY() + l2), new Point(p.getX(), p.getY() + l2)),
+                new Segment(new Point(p.getX(), p.getY() + l2), p)
             }
         );
-        this.setNom("Rec" + Rectangle.compteur);
         Rectangle.compteur++;
     }
     /*
@@ -43,20 +43,21 @@ public class Rectangle extends Polygone {
 
     /**
      * Constructeur de la classe Rectangle
-     * @param x: abscisse du point en haut à gauche du rectangle
-     * @param y: abscisse du point en haut à gauche du rectangle
+     * @param p: point en haut à gauche du rectangle
+     * @param l1: longueur du rectangle
+     * @param l2: largeur du rectangle
      * @param couleur: couleur du rectangle
      */
-    public Rectangle(double x, double y, double l1, double l2, Color couleur) {
+    public Rectangle(Point p, double l1, double l2, Color couleur) {
         super("Rec"+ compteur,
             new Segment[]{
-            new Segment(new Point(x, y), new Point(x + l1, y)), // 1er cote horizontal
-            new Segment(new Point(x + l1, y), new Point(x + l1, y + l2)), // 1er cote vertical
-            new Segment(new Point(x + l1, y + l2), new Point(x, y + l2)), // 2er cote horizontal
-            new Segment(new Point(x, y + l2), new Point(x, y)) // 2er cote vertical
-        }, couleur);
-        this.setNom("Rec" + Rectangle.compteur);
-        
+                new Segment(p, new Point(p.getX() + l1, p.getY())),
+                new Segment(new Point(p.getX() + l1, p.getY()), new Point(p.getX() + l1, p.getY() + l2)),
+                new Segment(new Point(p.getX() + l1, p.getY() + l2), new Point(p.getX(), p.getY() + l2)),
+                new Segment(new Point(p.getX(), p.getY() + l2), p)
+            },
+            couleur
+        );
         Rectangle.compteur++;
     }
 

@@ -1,6 +1,11 @@
 package geoanalytique.model;
 
 import java.awt.Color;
+import javax.swing.JPanel;
+
+import geoanalytique.exception.VisiteurException;
+import geoanalytique.graphique.Graphique;
+import geoanalytique.util.GeoObjectVisiteur;
 
 public class Ellipse extends Surface {
         
@@ -40,6 +45,13 @@ public class Ellipse extends Surface {
      */
     public String toString() {
         return "Ellipse de demi grand axe " + demiGrandAxe + " et de demi petit axe " + demiPetitAxe;
+    }
+
+    /**
+     * @return: le centre de l'ellipse
+     */
+    public Point getCentre() {
+        return centre;
     }
     
     /**
@@ -85,5 +97,15 @@ public class Ellipse extends Surface {
     @Override
     public String afficher() {
         return "Ellipse " + this.getNom() + " de centre " + this.centre.afficher() + " de demi grand axe " + this.demiGrandAxe + " et de demi petit axe " + this.demiPetitAxe;
+    }
+
+    @Override
+    public Graphique accept(GeoObjectVisiteur<Graphique> v) throws VisiteurException {
+        return v.visit(this);
+    }
+
+    @Override
+    public JPanel acceptJPanel(GeoObjectVisiteur<JPanel> v) throws VisiteurException {
+        return v.visit(this);
     }
 }

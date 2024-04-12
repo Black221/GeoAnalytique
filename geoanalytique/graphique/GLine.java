@@ -37,11 +37,11 @@ public class GLine extends Graphique {
      */
     @Override
     public void dessiner(Graphics g) {
-        // Dessiner une ligne entre les points (x1, y1) et (x2, y2) si nécessaire
         g.setColor(this.getCouleur());
         g.drawLine((int)p1.getX(), (int)p1.getY(), (int)p2.getX(), (int)p2.getY());
-        //Dessiner les points p1 et p2
-        // p1.dessiner(g);
-        // p2.dessiner(g);
     }
+
+    public String toString() {
+        return "Ligne de " + p1 + " à " + p2;
+    };
 }

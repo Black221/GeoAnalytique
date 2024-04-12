@@ -1,6 +1,9 @@
 package geoanalytique.model;
 import java.awt.Color;
 
+import geoanalytique.graphique.Graphique;
+import geoanalytique.util.GeoObjectVisiteur;
+
 public class Carre extends Rectangle{
     
     private static int compteur = 0;
@@ -11,8 +14,8 @@ public class Carre extends Rectangle{
      * @param y: abscisse du point en haut à gauche du carre
      * @param cote: longueur du cote du carre
      */
-    public Carre(double x, double y, double cote) {
-        super(x, y, cote, cote);
+    public Carre(Point p, double cote) {
+        super(p, cote, cote);
         this.setNom("Car" + Carre.compteur);
         Carre.compteur++;
     }
@@ -24,8 +27,8 @@ public class Carre extends Rectangle{
      * @param cote: longueur du cote du carre
      * @param couleur: couleur du carre
      */
-    public Carre(double x, double y, double cote, Color couleur) {
-        super(x, y, cote, cote, couleur);
+    public Carre(Point p, double cote, Color couleur) {
+        super(p, cote, cote, couleur);
         this.setNom("Car" + Carre.compteur);
         Carre.compteur++;
     }

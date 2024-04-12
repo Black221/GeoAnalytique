@@ -1,5 +1,5 @@
 package geoanalytique.util;
 
-public class Viewport {
+public interface Operation {
     
 }

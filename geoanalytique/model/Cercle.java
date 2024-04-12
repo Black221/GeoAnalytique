@@ -1,5 +1,6 @@
 package geoanalytique.model;
 import java.awt.Color;
+import geoanalytique.util.GeoObjectVisiteur;
 
 public class Cercle extends Ellipse {
     

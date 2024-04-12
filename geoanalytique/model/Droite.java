@@ -1,6 +1,11 @@
 package geoanalytique.model;
 
 import java.awt.Color;
+import javax.swing.JPanel;
+
+import geoanalytique.exception.VisiteurException;
+import geoanalytique.graphique.Graphique;
+import geoanalytique.util.GeoObjectVisiteur;
 
 /**
  * Classe Droite
@@ -80,6 +85,15 @@ public class Droite extends GeoObject{
         return "y = " + this.getCoefficientDirecteur() + "x + " + this.getOrdonneeOrigine();
     }
 
+    /**
+     * Methode pour recuperer l'ordonnée d'un point
+     * @param x: l'abscisse du point
+     * @return: l'ordonnée du point
+     */
+    public double getY(double x) {
+        return this.getCoefficientDirecteur() * x + this.getOrdonneeOrigine();
+    }
+
 
     /**
      * Methode pour recuperer tous les points de la droite
@@ -146,5 +160,15 @@ public class Droite extends GeoObject{
     @Override
     public String afficher () {
         return "- Droite " + this.getNom() + " : \n" + this.points[0].afficher() + "\n" + this.points[1].afficher();
+    }
+
+    @Override
+    public Graphique accept(GeoObjectVisiteur<Graphique> v) throws VisiteurException {
+        return v.visit(this);
+    }
+
+    @Override
+    public JPanel acceptJPanel(GeoObjectVisiteur<JPanel> v) throws VisiteurException {
+        return v.visit(this);
     }
 }

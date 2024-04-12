@@ -1,60 +1,34 @@
 package geoanalytique.view;
 
 import javax.swing.*;
+
+import geoanalytique.graphique.Canevas;
+
 import java.awt.*;
 import java.awt.event.*;
 
-public class GeoAnalytiqueView extends JPanel implements MouseMotionListener {
+public class GeoAnalytiqueView extends JPanel {
     
-    public JTextField field;
+    private Canevas canevas;
 
     public GeoAnalytiqueView() {
         super();
-        this.addMouseMotionListener(this);
         this.init();
     }
+
     
     public void init() {
         this.setBackground(Color.WHITE);
-
-        field = new JTextField();
-        field.setPreferredSize(new Dimension(100, 20));
-        field.setText("0");
-        this.add(field);
+        this.setLayout(new BorderLayout());
+        this.canevas = new Canevas();
+        this.add(canevas, BorderLayout.CENTER);
     }
 
-    public void paint(Graphics g) {
-        super.paint(g);
-        g.setColor(Color.BLACK);
+    public Canevas getCanevas() {
+        return canevas;
+    }
 
-        /* trace une ligne horizontale au milieu du repère */
-        g.drawLine(0, this.getHeight()/2, this.getWidth(), this.getHeight()/2);
-
-        /* trace une ligne verticale au milieu du repère */
-        g.drawLine(this.getWidth()/2, 0, this.getWidth()/2, this.getHeight());
-
-        /*  Part du milieu du repère trace la graduation par pas de 50 jusqu'à la fin du repère */
-        for (int i = this.getWidth()/2; i < this.getWidth(); i += 50) {
-            g.drawLine(i, this.getHeight()/2 - 5, i, this.getHeight()/2 + 5);
-        }
-
-        /* Part du milieu du repère trace la graduation par pas de 50 jusqu'au début du repère */
-        for (int i = this.getWidth()/2; i > 0; i -= 50) {
-            g.drawLine(i, this.getHeight()/2 - 5, i, this.getHeight()/2 + 5);
-        }
-
-        /* Part du milieu du repère trace la graduation par pas de 50 jusqu'en haut du repère */
-        for (int i = this.getHeight()/2; i > 0; i -= 50) {
-            g.drawLine(this.getWidth()/2 - 5, i, this.getWidth()/2 + 5, i);
-        }
-
-        /* Part du milieu du repère trace la graduation par pas de 50 jusqu'en bas du repère */
-        for (int i = this.getHeight()/2; i < this.getHeight(); i += 50) {
-            g.drawLine(this.getWidth()/2 - 5, i, this.getWidth()/2 + 5, i);
-        }
-
-        /* representer point */
-        g.setColor(Color.RED);
-        g.drawOval(x, y, 2, 2);
-    };
+    public void setCanevas(Canevas canevas) {
+        this.canevas = canevas;
+    }
 }

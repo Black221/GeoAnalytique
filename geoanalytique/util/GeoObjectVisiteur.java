@@ -4,9 +4,9 @@ import geoanalytique.exception.*;
 import geoanalytique.model.*;
 
 public interface GeoObjectVisiteur<T> {
-    public T visitPoint(Point p) throws VisiteurException;
-	public T visitSegment(Segment s) throws VisiteurException;
-	public T visitDroite(Droite d) throws VisiteurException;
-	public T visitEllipse(Ellipse e) throws VisiteurException;
-	public T visitPolygone(Polygone p) throws VisiteurException;
+    public T visit(Point p) throws VisiteurException;
+	public T visit(Segment s) throws VisiteurException;
+	public T visit(Droite d) throws VisiteurException;
+	public T visit(Ellipse e) throws VisiteurException;
+	public T visit(Polygone p) throws VisiteurException;
 }

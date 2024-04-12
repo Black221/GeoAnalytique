@@ -1,7 +1,9 @@
 package geoanalytique.view;
 
+import geoanalytique.util.EnumBoutons.*;
 import javax.swing.*;
 import java.awt.*;
+
 
 public class GeoActionsView extends JPanel {
 
@@ -9,25 +11,9 @@ public class GeoActionsView extends JPanel {
     private JPanel panelFigures;
     private JPanel panelCouleurs;
 
-    /**
-     * 
-     */
-    public enum Outils {
-        SELECTION, DEPLACEMENT, ZOOMAVANT, ZOOMARRIERE
-    }
-
     private JButton boutonsOutils[] = new JButton[4];
-
-    public enum Figures {
-        POINT, SEGMENT, DROITE, TRIANGLE, CARRE, RECTANGLE, LOSANGE, CERCLE, ELLIPSE
-    }
     private JButton boutonsFigures[] = new JButton[9];
-
-    public enum Couleurs {
-        BLANC, NOIR, GRIS, MARRON, ROUGE, JAUNE, VERT, BLEU
-    }
-    //Boutton couleurs
-    private JButton [] boutonsCouleurs = new JButton[8];
+    private JButton boutonsCouleurs[] = new JButton[8];
     
     
     public GeoActionsView() {
@@ -97,7 +83,8 @@ public class GeoActionsView extends JPanel {
         pb.setLayout(new GridLayout(2, 4));
 
         for (int i = 0; i < 8; i++) {
-            this.boutonsCouleurs[i] = new JButton(Couleurs.values()[i].toString());
+            this.boutonsCouleurs[i] = new JButton("");
+            this.boutonsCouleurs[i].setBackground(Couleurs.values()[i].getColor());
             pb.add(this.boutonsCouleurs[i]);
         }
 
