@@ -12,7 +12,4 @@ public class Cercle extends Ellipse {
         super(centre, rayon, rayon, couleur);
     }
 
-    public String toString() {
-        return "Cercle de rayon " + this.getDemiGrandAxe();
-    }
 }

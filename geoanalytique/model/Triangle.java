@@ -57,24 +57,4 @@ public class Triangle extends Polygone {
         );
         return aire;
     }
-
-    /*
-     * @description: Affiche les coordonnées des points du triangle
-     * @return: les coordonnées des points du triangle en format texte
-     */
-    public String afficher() {
-        String str = "Triangle " + this.getNom() + " - Couleur: " + this.getCouleur();
-        for (Segment cote : cotes) {
-            str += "\n" + cote.afficher();
-        }
-        return str;
-    }
-
-    /*
-     * @description: modifie la longueur d'un cote du triangle
-     * @param dx: nombre de pixels
-     * @param pivot: segment pivot qui reste fixe
-     */
-    
-  
 }

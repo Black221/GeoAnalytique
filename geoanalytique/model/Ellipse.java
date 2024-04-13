@@ -95,11 +95,6 @@ public class Ellipse extends Surface {
     }
 
     @Override
-    public String afficher() {
-        return "Ellipse " + this.getNom() + " de centre " + this.centre.afficher() + " de demi grand axe " + this.demiGrandAxe + " et de demi petit axe " + this.demiPetitAxe;
-    }
-
-    @Override
     public Graphique accept(GeoObjectVisiteur<Graphique> v) throws VisiteurException {
         return v.visit(this);
     }

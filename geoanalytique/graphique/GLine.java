@@ -38,6 +38,7 @@ public class GLine extends Graphique {
     @Override
     public void dessiner(Graphics g) {
         g.setColor(this.getCouleur());
+        //line weight
         g.drawLine((int)p1.getX(), (int)p1.getY(), (int)p2.getX(), (int)p2.getY());
     }
 

@@ -52,11 +52,6 @@ public class GCoordonnee extends Graphique {
     public void dessiner(Graphics g) {
         // Dessiner une représentation graphique pour une coordonnée si nécessaire
         g.setColor(this.getCouleur());
-        g.fillOval((int)x - 5,(int)y - 5, 10, 10);
+        g.fillOval((int)x - 4,(int)y - 4, 8, 8); // center le point
     }
-
-    @Override
-    public String toString() {
-        return "(" + x + ", " + y + ")";
-    };
 }

@@ -16,7 +16,6 @@ public class EnumBoutons {
     public enum Couleurs {
         BLANC, NOIR, GRIS, MARRON, ROUGE, JAUNE, VERT, BLEU;
 
-        
         public Color getColor() {
             switch (this) {
                 case BLANC:

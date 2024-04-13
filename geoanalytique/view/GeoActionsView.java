@@ -14,6 +14,12 @@ public class GeoActionsView extends JPanel {
     private JButton boutonsOutils[] = new JButton[4];
     private JButton boutonsFigures[] = new JButton[9];
     private JButton boutonsCouleurs[] = new JButton[8];
+
+    private JButton boutons[][] = new JButton[3][];
+
+    public static enum BoutonType {
+        OUTILS, FIGURES, COULEURS
+    }
     
     
     public GeoActionsView() {
@@ -96,10 +102,13 @@ public class GeoActionsView extends JPanel {
         this.panelCouleurs.add(tf, BorderLayout.SOUTH);
         /* ----------------------------------------------------------- */
 
+        boutons[0] = boutonsOutils;
+        boutons[1] = boutonsFigures;
+        boutons[2] = boutonsCouleurs;
+
         this.add(this.panelOutils);
         this.add(this.panelFigures);
         this.add(this.panelCouleurs);
-
     }
 
     /**
@@ -116,5 +125,9 @@ public class GeoActionsView extends JPanel {
 
     public JButton [] getBoutonsCouleurs() {
         return this.boutonsCouleurs;
+    }
+
+    public JButton [][] getBoutons() {
+        return this.boutons;
     }
 }

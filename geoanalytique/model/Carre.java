@@ -39,16 +39,4 @@ public class Carre extends Rectangle{
     public double getCote() {
         return super.getLongueur();
     }
-
-    /**
-     * Affiche les coordonnées des points du carre
-     * @return: les coordonnées des points du carre en format texte
-     */
-    public String afficher() {
-        String str = "Carre " + this.getNom() + " - Longueur: " + this.getLongueur() + " - Largeur: " + this.getLargeur() + " - Couleur: " + this.getCouleur();
-        for (Segment cote : cotes) {
-            str += "\n" + cote.afficher();
-        }
-        return str;
-    }
 }

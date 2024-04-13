@@ -81,12 +81,6 @@ public abstract class GeoObject {
         this.estSelectionne = estSelectionne;
     }
 
-    /**
-     * Methode pour afficher l'objet
-     * @return une chaine de caractere representant l'objet
-     */
-    public abstract String afficher ();
     public abstract Graphique accept(GeoObjectVisiteur<Graphique> v) throws VisiteurException;
-
     public abstract JPanel acceptJPanel(GeoObjectVisiteur<JPanel> v) throws VisiteurException;
 }

@@ -153,14 +153,6 @@ public class Droite extends GeoObject{
         return new Point(x, y);
     }
 
-    /**
-     * Methode pour afficher les coordonnées des points de la droite
-     * @return: les coordonnées des points de la droite
-     */
-    @Override
-    public String afficher () {
-        return "- Droite " + this.getNom() + " : \n" + this.points[0].afficher() + "\n" + this.points[1].afficher();
-    }
 
     @Override
     public Graphique accept(GeoObjectVisiteur<Graphique> v) throws VisiteurException {

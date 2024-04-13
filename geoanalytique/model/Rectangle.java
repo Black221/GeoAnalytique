@@ -113,18 +113,4 @@ public class Rectangle extends Polygone {
     public double aire() {
         return this.getLongueur() * this.getLargeur();
     }
-
-    /**
-     * Affiche les coordonnées des points du rectangle
-     * @return les coordonnées des points du rectangle en format texte
-     */
-    @Override
-    public String afficher() {
-        String str = "Rectangle " + this.getNom() + " - Longueur: " + this.getLongueur() + " - Largeur: " + this.getLargeur() + " - Couleur: " + this.getCouleur();
-        for (Segment cote : cotes) {
-            str += "\n" + cote.afficher();
-        }
-        return str;
-    }
-
 }

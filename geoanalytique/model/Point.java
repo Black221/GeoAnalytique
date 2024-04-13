@@ -73,17 +73,6 @@ public class Point extends GeoObject{
     }
 
 
-    /**
-     * Methode pour affichage du point
-     * @return: les coordonnées du point en format texte
-     * //exemple: [Point P1 : (2.0|3.0)]
-     */
-    @Override
-    public String afficher () {
-        return ("[Point " + this.getNom() + " : (" + this.x + "|" + this.y + ")]");
-    }
-
-    
     @Override
     public Graphique accept(GeoObjectVisiteur<Graphique> v) throws VisiteurException {
         return v.visit(this);

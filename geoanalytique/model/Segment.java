@@ -75,16 +75,6 @@ public class Segment extends  Droite{
         );
     }
 
-    /**
-     * Affiche les coordonnées des points du segment
-     * @return: les coordonnées des points du segment en format texte
-     */
-    @Override
-    public String afficher() {
-        return "- Segment " + this.getNom() + " : \n" + this.getPoint1().afficher() + "\n" + this.getPoint2().afficher();
-    }
-
-
     @Override
     public Graphique accept(GeoObjectVisiteur<Graphique> v) throws VisiteurException {
         return v.visit(this);

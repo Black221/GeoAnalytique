@@ -35,6 +35,15 @@ public class Viewport {
         this.dx = 50;
     }
 
+    /**
+     * Méthode pour normaliser une coordonnée réelle
+     * @param a
+     * @return
+     */
+    public int normalizer(double a) {
+        return (int) (a * this.dx);
+    }
+
     
     /**
      * Méthode pour convertir une coordonnée réelle en coordonnée graphique

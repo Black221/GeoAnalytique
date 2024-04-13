@@ -4,7 +4,7 @@ import geoanalytique.exception.VisiteurException;
 import geoanalytique.graphique.*;
 import geoanalytique.model.*;
 
-public class Dessinateur implements GeoObjectVisiteur<Graphique>{
+public class Dessinateur implements GeoObjectVisiteur<Graphique> {
     
     private Viewport viewport;
 
@@ -18,12 +18,14 @@ public class Dessinateur implements GeoObjectVisiteur<Graphique>{
 
     public Graphique visit(Segment s) throws VisiteurException {
         return new GLine(
-            this.viewport.convert(s.getPoint1()),
-            this.viewport.convert(s.getPoint2())
+            this.viewport.convert(s.getPoint1()), // converti en GCoordonee
+            this.viewport.convert(s.getPoint2()) // converti en GCoordonee
         );
     }
 
     public Graphique visit(Droite d) throws VisiteurException {
+
+        // y = ax + b
         Point p1 = new Point(
             this.viewport.getXMin(),
             d.getY(this.viewport.getXMin())
@@ -42,10 +44,11 @@ public class Dessinateur implements GeoObjectVisiteur<Graphique>{
 
     public Graphique visit(Ellipse e) throws VisiteurException {
         GCoordonnee centre = this.viewport.convert(e.getCentre());
-        double rayonX = this.viewport.convertX(e.getDemiGrandAxe());
-        double rayonY = this.viewport.convertY(e.getDemiPetitAxe());
 
-        return new GOval(centre, rayonX, rayonY);
+        double demiGrandAxe = this.viewport.normalizer(e.getDemiGrandAxe());
+        double demiPetitAxe = this.viewport.normalizer(e.getDemiPetitAxe());
+
+        return new GOval(centre, demiGrandAxe, demiPetitAxe);
     }
 
     public Graphique visit(Polygone p) throws VisiteurException {
