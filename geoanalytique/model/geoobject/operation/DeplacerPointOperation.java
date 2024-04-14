@@ -1,28 +1,21 @@
-package geoanalytique.model.operation;
+package geoanalytique.model.geoobject.operation;
 
-import geoanalytique.model.GeoObject;
+import geoanalytique.util.Operation;
+import geoanalytique.exception.*;
+import geoanalytique.model.*;
 
-/**
- * Cette classe permet de changer le nom d'un objet
- */
-public class ChangeNomOperation extends Operation {
+public class DeplacerPointOperation implements Operation{
     
-    private GeoObject [] arguments;
-    /**
-     * Constructeur
-     */
-    public ChangeNomOperation() {
-        super();
-    }
+    private Point nouveaupoint;
 
     /**
      * Permet d'associer un titre a l'operation courante
      * @return Renvoie le titre de l'operation
      */
     public String getTitle() {
-        return "Changer le nom";
-    }
-
+        return "Déplacer Point";
+    } 
+    
     /**
      * Renvoie le nombre d'argument possible pour l'opération en cours
      * @return Renvoie le nombre d'argument possible pour l'opération en cours
@@ -39,15 +32,15 @@ public class ChangeNomOperation extends Operation {
      * @throws IncorrectTypeOperationException 
      */
     public void setArgument(int numero, Object obj) throws ArgumentOperationException, IncorrectTypeOperationException {
-        if (numero == 0) {
-            if (obj instanceof String) {
-                this.arguments.add(obj);
-            } else {
-                throw new IncorrectTypeOperationException("Le type de l'argument est incorrect");
+        if (obj instanceof Point) {
+            if(numero == 0){
+                this.nouveaupoint = (Point) obj;
+            }else{
+                throw new ArgumentOperationException("Numéro argument invalide");
             }
-        } else {
-            throw new ArgumentOperationException("Il n'y a qu'un seul argument pour cette opération");
-        }
+        }else{
+            throw new IncorrectTypeOperationException("Le type de l'argument est incorrect");
+        }  
     }
 
     /**
@@ -55,8 +48,12 @@ public class ChangeNomOperation extends Operation {
      * @param numero: numero de l'argument défini dans le type
      * @return Renvoie la classe de l'argument numero
      */
-    public Class<?> getClassArgument(int numero) {
-        return String.class;
+    public Class<?> getClassArgument(int numero) throws ArgumentOperationException{
+        if(numero == 0){
+            return nouveaupoint.getClass();
+        }else{
+            throw new ArgumentOperationException("Numéro argument invalide");
+        }
     }
 
     /**
@@ -64,6 +61,17 @@ public class ChangeNomOperation extends Operation {
      * @return Renvoie l'objet résultant du calcul de l'opération
      */
     public Object calculer() {
-        return this.arguments.get(0);
+        return this.nouveaupoint;
+    }
+
+    /**
+     * Donne la description
+     */
+    public String getDescriptionArgument(int numero) throws ArgumentOperationException {
+        if(numero == 0){
+            return "Nouveau point";
+        }else{
+            throw new ArgumentOperationException("Numéro argument invalide");
+        }
     }
 }

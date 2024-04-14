@@ -7,30 +7,50 @@ import java.util.ArrayList;
 public class Canevas extends JPanel {
 
     private ArrayList<Graphique> graphiques;
-
+    /**
+     * Constructeur
+     */
     public Canevas() {
         super();
         this.init();
     }
     
+    /**
+     * Permet l'initialisation
+     */
     public void init() {
         this.setBackground(Color.WHITE);
         this.graphiques = new ArrayList<Graphique>();
     }
 
+    /**
+     * Ajouter un element
+     * @param g
+     */
     public void addGraphique (Graphique g) {
         this.graphiques.add(g);
         System.out.println(graphiques.size());
     }
 
+    /**
+     * Supprime tous les elements
+     */
     public void clear () {
         this.graphiques.clear();
     }
 
+    /**
+     * Enleve un element
+     * @param g
+     */
     public void removeGraphique (Graphique g) {
         this.graphiques.remove(g);
     }
 
+    /**
+     * Permet de tracer le repere
+     * @param g
+     */
     public void repere (Graphics g) {
         g.setColor(Color.BLACK);
 
@@ -62,13 +82,14 @@ public class Canevas extends JPanel {
     }
 
     /**
-     * 
+     * Permet de tous redissiner apres calcule des points
+     * @param g graphic
      */
     public void paint(Graphics g) {
         super.paint(g);
         this.repere(g);
-        for (Graphique gr : graphiques) {
-            gr.dessiner(g);
+        for (Graphique graphique : graphiques) {
+            graphique.dessiner(g);
         }
     };
 }

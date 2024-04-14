@@ -70,6 +70,14 @@ public class GeoInfoView extends JPanel {
         this.objets.remove(obj);
     }
 
+    /**
+     * Efface les elements dessines
+     */
+    public void clearObject(){
+        this.objets.clear();
+        this.container.removeAll();
+    }
+
 
     /**
      * Affiche les informations des objets géométriques dans la liste sur l'inteface graphique

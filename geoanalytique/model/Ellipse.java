@@ -31,9 +31,9 @@ public class Ellipse extends Surface {
     
     /**
      * Constructeur de la classe Ellipse
-     * @param demiGrandAxe: le demi grand axe de l'ellipse
-     * @param demiPetitAxe: le demi petit axe de l'ellipse
-     * @param couleur: la couleur de l'ellipse
+     * @param demiGrandAxe le demi grand axe de l'ellipse
+     * @param demiPetitAxe le demi petit axe de l'ellipse
+     * @param couleur la couleur de l'ellipse
      */
     public Ellipse(Point centre, double demiGrandAxe, double demiPetitAxe, Color couleur) {
         this(centre, demiGrandAxe, demiPetitAxe);
@@ -94,11 +94,21 @@ public class Ellipse extends Surface {
         return Math.pow(p.getX(), 2) / Math.pow(demiGrandAxe, 2) + Math.pow(p.getY(), 2) / Math.pow(demiPetitAxe, 2) <= 1;
     }
 
+    /**
+     * Permet au visiteur de connaiter la classe
+     * @param v visiteur
+     * @return graphique
+     */
     @Override
     public Graphique accept(GeoObjectVisiteur<Graphique> v) throws VisiteurException {
         return v.visit(this);
     }
 
+    /**
+     * Permet au visiteur de connaitre la classe
+     * @param v visiteur
+     * @return pannel 
+     */
     @Override
     public JPanel acceptJPanel(GeoObjectVisiteur<JPanel> v) throws VisiteurException {
         return v.visit(this);

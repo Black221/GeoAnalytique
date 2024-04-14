@@ -1,14 +1,18 @@
-package geoanalytique.model.operation;
+package geoanalytique.model.geoobject.operation;
+
+import geoanalytique.util.Operation;
+import geoanalytique.exception.*;
 
 /**
- * Cette classe permet de calculer la mediane de l'objet GeoAnalytique
+ * Cette classe permet de changer le nom d'un objet
  */
-public class MedianeOperation extends Operation {
-
+public class ChangeNomOperation implements Operation {
+    
+    private String nom;
     /**
      * Constructeur
      */
-    public MedianeOperation() {
+    public ChangeNomOperation() {
         super();
     }
 
@@ -17,7 +21,7 @@ public class MedianeOperation extends Operation {
      * @return Renvoie le titre de l'operation
      */
     public String getTitle() {
-        return "Calculer la médiane";
+        return "Changer le nom";
     }
 
     /**
@@ -25,7 +29,7 @@ public class MedianeOperation extends Operation {
      * @return Renvoie le nombre d'argument possible pour l'opération en cours
      */
     public int getArite() {
-        return 0;
+        return 1;
     }
 
     /**
@@ -36,7 +40,15 @@ public class MedianeOperation extends Operation {
      * @throws IncorrectTypeOperationException 
      */
     public void setArgument(int numero, Object obj) throws ArgumentOperationException, IncorrectTypeOperationException {
-        throw new ArgumentOperationException("Pas d'argument pour cette opération");
+        if (numero == 0) {
+            if (obj instanceof String) {
+                this.nom = (String) obj;
+            } else {
+                throw new IncorrectTypeOperationException("Le type de l'argument est incorrect");
+            }
+        } else {
+            throw new ArgumentOperationException("Il n'y a qu'un seul argument pour cette opération");
+        }
     }
 
     /**
@@ -45,7 +57,7 @@ public class MedianeOperation extends Operation {
      * @return Renvoie la classe de l'argument numero
      */
     public Class<?> getClassArgument(int numero) {
-        return null;
+        return String.class;
     }
 
     /**
@@ -53,6 +65,17 @@ public class MedianeOperation extends Operation {
      * @return Renvoie l'objet résultant du calcul de l'opération
      */
     public Object calculer() {
-        return null;
+        return this.nom;
+    }
+
+    /**
+     * Donne la description 
+     */
+    public String getDescriptionArgument(int numero) throws ArgumentOperationException {
+        if(numero == 0){
+            return "Nouveau point";
+        }else{
+            throw new ArgumentOperationException("Numéro argument invalide");
+        }
     }
 }

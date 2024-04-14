@@ -64,6 +64,10 @@ public class Losange extends Polygone {
         return 0;
     }
 
+    /**
+     * Methode pour afficher le nom de la forme geometrique
+     * @return le nom de l'objet
+     */
     public String afficher() {
         return "Losange " + this.getNom();
     }

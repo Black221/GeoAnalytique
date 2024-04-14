@@ -6,9 +6,12 @@ import geoanalytique.graphique.Canevas;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 
 public class GeoAnalytiqueView extends JPanel {
     
+    // private ArrayList<Graphique> graphiques;
+
     private Canevas canevas;
 
     public GeoAnalytiqueView() {

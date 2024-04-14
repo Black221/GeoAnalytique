@@ -3,14 +3,12 @@ package geoanalytique.gui;
 import geoanalytique.view.*;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class GeoAnalytiqueGUI extends JFrame {
     
     private GeoAnalytiqueView panelRepere;
     private GeoInfoView panelInfo;
-    private GeoActionsView panelBouton;
+    private GeoBoutonsView panelBouton;
     /*
      * Constructeur de la classe GeoAnalytiqueGUI
      * 
@@ -42,7 +40,7 @@ public class GeoAnalytiqueGUI extends JFrame {
         panel.setLayout(new BorderLayout());
 
         //Panneau haut
-        panelBouton = new GeoActionsView();
+        panelBouton = new GeoBoutonsView();
         panel.add(panelBouton, BorderLayout.NORTH);
 
         //Panneau de gauche
@@ -68,7 +66,7 @@ public class GeoAnalytiqueGUI extends JFrame {
         return panelInfo;
     }
 
-    public GeoActionsView getPanelBouton() {
+    public GeoBoutonsView getPanelBouton() {
         return panelBouton;
     }
 

@@ -9,21 +9,15 @@ import geoanalytique.view.*;
 import geoanalytique.util.*;
 
 import javax.swing.*;
-import javax.swing.border.Border;
-
-import org.w3c.dom.events.Event;
-
-import java.awt.Graphics;
 import java.awt.Color;
 import java.awt.event.*;
-import java.util.ArrayList;
 
 
 public class GeoAnalytiqueControleur implements MouseListener {
 
     private GeoAnalytiqueView panelRepere;
     private GeoInfoView panelInfo;
-    private GeoActionsView panelBouton;
+    private GeoBoutonsView panelBouton;
 
     private Color couleur = Color.BLACK;
     private JButton [] boutonsCouleurs;
@@ -138,6 +132,10 @@ public class GeoAnalytiqueControleur implements MouseListener {
                 this.outilSelectionne = boutonOutilActif.getText();
             });
         }
+
+        this.panelBouton.getEffacer().addActionListener(e -> {
+            this.effacer();
+        });
     }
 
     private GCoordonnee [] cliques = new GCoordonnee[2];
@@ -183,7 +181,7 @@ public class GeoAnalytiqueControleur implements MouseListener {
                 );
             }
             this.canevas.repaint();
-            // this.panelInfo.afficherInfo();
+            this.panelInfo.afficherInfo();
         } catch (VisiteurException e) {
             e.printStackTrace();
         }
@@ -207,5 +205,11 @@ public class GeoAnalytiqueControleur implements MouseListener {
 
     public void deselectionner() {
 
+    }
+
+    public void effacer(){
+        this.canevas.clear();
+        this.panelInfo.clearObject();
+        this.recalculePoints();
     }
 }

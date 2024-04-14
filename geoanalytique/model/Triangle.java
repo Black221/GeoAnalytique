@@ -2,20 +2,15 @@ package geoanalytique.model;
 
 import java.awt.Color;
 
-import geoanalytique.graphique.Graphique;
-import geoanalytique.util.GeoObjectVisiteur;
-
 public class Triangle extends Polygone {
     
     private static int compteur = 0;
 
-    /*
+    /**
      * Constructeur de la classe Triangle
      * @param p1: premier point du triangle
      * @param p2: deuxième point du triangle
      * @param p3: troisième point du triangle
-     * 
-     * @description: Crée un triangle avec trois points
      */
     public Triangle (Point p1, Point p2, Point p3) {
         super("Tri"+ Triangle.compteur, // "Tri" pour "Triangle"
@@ -27,14 +22,12 @@ public class Triangle extends Polygone {
         Triangle.compteur++;
     }
 
-    /*
+    /**
      * Constructeur de la classe Triangle
      * @param p1: premier point du triangle
      * @param p2: deuxième point du triangle
      * @param p3: troisième point du triangle
      * @param couleur: couleur du triangle
-     * 
-     * @description: Crée un triangle avec trois points et une couleur
      */
     public Triangle (Point p1, Point p2, Point p3, Color couleur) {
         super("Tri"+ Triangle.compteur, // "Tri" pour "Triangle"
@@ -46,7 +39,7 @@ public class Triangle extends Polygone {
         Triangle.compteur++;
     }
 
-    /*
+    /**
      * @return: l'aire du triangle
      */
     @Override

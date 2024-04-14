@@ -1,4 +1,4 @@
-package geoanalytique.view;
+package geoanalytique.util;
 
 import geoanalytique.model.GeoObject;
 

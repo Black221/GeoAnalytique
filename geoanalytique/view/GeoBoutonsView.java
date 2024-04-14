@@ -5,11 +5,13 @@ import javax.swing.*;
 import java.awt.*;
 
 
-public class GeoActionsView extends JPanel {
+public class GeoBoutonsView extends JPanel {
 
     private JPanel panelOutils;
     private JPanel panelFigures;
     private JPanel panelCouleurs;
+
+    private JButton effacer = new JButton("Effacer");
 
     private JButton boutonsOutils[] = new JButton[4];
     private JButton boutonsFigures[] = new JButton[9];
@@ -22,7 +24,7 @@ public class GeoActionsView extends JPanel {
     }
     
     
-    public GeoActionsView() {
+    public GeoBoutonsView() {
         super();
         this.init();
     }
@@ -57,6 +59,7 @@ public class GeoActionsView extends JPanel {
         tf.setHorizontalAlignment(JTextField.CENTER);
         tf.setEditable(false);
         this.panelOutils.add(tf, BorderLayout.SOUTH);
+        this.panelOutils.add(effacer, BorderLayout.EAST);
         /* ----------------------------------------------------------- */
 
         /* ---------------------------Figures------------------------- */
@@ -129,5 +132,9 @@ public class GeoActionsView extends JPanel {
 
     public JButton [][] getBoutons() {
         return this.boutons;
+    }
+
+    public JButton getEffacer() {
+        return this.effacer;
     }
 }

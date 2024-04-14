@@ -2,52 +2,45 @@ package geoanalytique.model;
 
 import java.awt.Color;
 
-import geoanalytique.graphique.Graphique;
-import geoanalytique.util.GeoObjectVisiteur;
-
 public class TriangleIsocele extends Triangle {
     
     private static int compteur = 0;
-    private double base;
-    private double cote;
 
-    /*
-     * Constructeur de la classe TriangleIsocele
-     * @param base: base
-     * @param cote: cote
-     * @description: Crée un triangle isocèle avec trois points
+    /**
+     * Constructeur
+     * @param p1 premier point 
+     * @param p2 deuxieme point
+     * @param base la base
      */
-    public TriangleIsocele (Point p1, Point p2, double cote) {
+    public TriangleIsocele (Point p1, Point p2, double base) {
         super(
             p1, p2,
             new Point(
-                p1.getX() + Math.sqrt(Math.pow(cote, 2) - Math.pow((p2.getX() - p1.getX()) / 2, 2)),
-                p1.getY() + Math.sqrt(Math.pow(cote, 2) - Math.pow((p2.getX() - p1.getX()) / 2, 2))
+                p1.getX() + Math.sqrt(Math.pow(base, 2) - Math.pow((p2.getX() - p1.getX()) / 2, 2)),
+                p1.getY() + Math.sqrt(Math.pow(base, 2) - Math.pow((p2.getX() - p1.getX()) / 2, 2))
             )
         );
         this.setNom("TI" + TriangleIsocele.compteur);
         TriangleIsocele.compteur++;
     }
 
-    /*
-     * Constructeur de la classe TriangleIsocele
-     * @param base: base
-     * @param cote: cote
-     * @param couleur: couleur du triangle
-     * @description: Crée un triangle isocèle avec trois points et une couleur
+    /**
+     * Constructeur
+     * @param p1 premier point
+     * @param p2 deuxieme point 
+     * @param base la base
+     * @param couleur la couleur
      */
-    public TriangleIsocele (Point p1, Point p2, double cote, Color couleur) {
+    public TriangleIsocele (Point p1, Point p2, double base, Color couleur) {
         super(
             p1, p2,
             new Point(
-                p1.getX() + Math.sqrt(Math.pow(cote, 2) - Math.pow((p2.getX() - p1.getX()) / 2, 2)),
-                p1.getY() + Math.sqrt(Math.pow(cote, 2) - Math.pow((p2.getX() - p1.getX()) / 2, 2))
+                p1.getX() + Math.sqrt(Math.pow(base, 2) - Math.pow((p2.getX() - p1.getX()) / 2, 2)),
+                p1.getY() + Math.sqrt(Math.pow(base, 2) - Math.pow((p2.getX() - p1.getX()) / 2, 2))
             ),
             couleur
         );
         this.setNom("TI" + TriangleIsocele.compteur);
         TriangleIsocele.compteur++;
     }
-
-
 }

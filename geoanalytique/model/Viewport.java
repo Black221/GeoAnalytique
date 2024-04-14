@@ -1,7 +1,6 @@
 package geoanalytique.model;
 
 import geoanalytique.graphique.GCoordonnee;
-import geoanalytique.graphique.GPolygone;
 
 /**
  * Cette classe constitue un moyen pour convertir les coordonnées réelles du repère en coordonnées
@@ -71,7 +70,9 @@ public class Viewport {
     public GCoordonnee convert (Point point) {
         double x = (point.getX() * this.dx + this.xMax);
         double y = (this.yMax - point.getY() * this.dx);
-        return new GCoordonnee(x, y);
+        GCoordonnee g = new GCoordonnee(x, y);
+        g.setCouleur(point.getCouleur());
+        return g;
     }
 
     /**

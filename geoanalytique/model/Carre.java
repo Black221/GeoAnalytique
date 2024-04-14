@@ -1,9 +1,6 @@
 package geoanalytique.model;
 import java.awt.Color;
 
-import geoanalytique.graphique.Graphique;
-import geoanalytique.util.GeoObjectVisiteur;
-
 public class Carre extends Rectangle{
     
     private static int compteur = 0;
@@ -34,6 +31,7 @@ public class Carre extends Rectangle{
     }
 
     /**
+     * Recupere la longueur d'un cote
      * @return: la longueur du carre
      */
     public double getCote() {

@@ -81,6 +81,12 @@ public abstract class GeoObject {
         this.estSelectionne = estSelectionne;
     }
 
+    /**
+     * Permet au visiteur de connaitre la classe de l'objet
+     * @param v visiteur
+     * @return graphique
+     * @throws VisiteurException
+     */
     public abstract Graphique accept(GeoObjectVisiteur<Graphique> v) throws VisiteurException;
     public abstract JPanel acceptJPanel(GeoObjectVisiteur<JPanel> v) throws VisiteurException;
 }

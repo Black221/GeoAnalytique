@@ -17,8 +17,8 @@ public class Droite extends GeoObject{
 
     /**
      * Constructeur de la classe Droite
-     * @param p1: premier point de la droite
-     * @param p2: deuxième point de la droite
+     * @param p1 premier point de la droite
+     * @param p2 deuxième point de la droite
      */
     public Droite (Point p1, Point p2) {
         super("D" + Droite.compteur);
@@ -30,8 +30,8 @@ public class Droite extends GeoObject{
 
     /**
      * Constructeur de la classe Droite
-     * @param p1: premier point de la droite
-     * @param p2: deuxième point de la droite
+     * @param p1 premier point de la droite
+     * @param p2 deuxième point de la droite
      * @param couleur: couleur de la droite
      */
     public Droite (Point p1, Point p2, Color couleur) {

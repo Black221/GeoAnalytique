@@ -41,10 +41,18 @@ public abstract class Polygone extends Surface {
         this.fusionner();
     }
 
+    /**
+     * Permet de connaitre la liste de cotes du polygone
+     * @return: retourne la liste des cotes du polygone
+     */
     public Segment[] getCotes() {
         return cotes;
     }
 
+    /**
+     * Permet de connaitre la liste des sommets du polygone
+     * @return retourne la liste des sommets du polygone
+     */
     public Point[] getSommets() {
         Point[] sommets = new Point[this.cotes.length];
         for (int i = 0; i < this.cotes.length; i++) {
@@ -64,6 +72,7 @@ public abstract class Polygone extends Surface {
     }
 
     /**
+     * Permet de calculer le perimetre de l'objet
      * @return: retourne le perimetre du polygone
      */
     public double perimetre() {
@@ -74,12 +83,19 @@ public abstract class Polygone extends Surface {
         return perimetre;
     }
 
-
+    /**
+     * Permet au visiteur de connaitre la classe
+     * @param v visiteur
+     * @return Graphique
+     */
     @Override
     public Graphique accept(GeoObjectVisiteur<Graphique> v) throws VisiteurException {
         return v.visit(this);
     }
 
+    /**
+     * Permet au visiteur de connaitre la classe
+     */
     @Override
     public JPanel acceptJPanel(GeoObjectVisiteur<JPanel> v) throws VisiteurException {
         return v.visit(this);

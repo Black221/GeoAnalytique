@@ -1,6 +1,4 @@
 package geoanalytique.model;
-
-import geoanalytique.util.GeoObjectVisiteur;
 import java.awt.Color;
 public class Rectangle extends Polygone {
 
@@ -80,32 +78,6 @@ public class Rectangle extends Polygone {
             cotes[1].longueur() 
         );
     }
-
-    /**
-     * @param dx: nombre de pixels
-     * @param pivot: segment pivot qui reste fixe
-     * @description: modifie la longueur du rectangle
-     */
-    public void setCotes(double dx, int pivot) {
-
-        if (pivot > 3 || pivot < 0) {
-            return;
-        }
-        //si pivot = 0 on translate 2 de dx
-        if (pivot == 0) {
-            this.cotes[2].getPoint1().setX(
-                this.cotes[2].getPoint1().getX() + dx
-            );
-            this.cotes[2].getPoint2().setX(
-                this.cotes[2].getPoint2().getX() + dx
-            );
-
-        } else {
-            this.cotes[pivot % 2].getPoint1().setX(this.cotes[pivot % 2].getPoint1().getX() + dx);
-            this.cotes[pivot % 2].getPoint2().setX(this.cotes[pivot % 2].getPoint2().getX() + dx);
-        }
-    }
-
 
     /**
      * @Return: retourne l'aire du rectangle

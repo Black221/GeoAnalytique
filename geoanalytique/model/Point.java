@@ -72,12 +72,21 @@ public class Point extends GeoObject{
         this.y = y;
     }
 
-
+    /**
+     * Permet au visiteur de connaiter la classe
+     * @param v visiteur
+     * @return JPanel
+     */
     @Override
     public Graphique accept(GeoObjectVisiteur<Graphique> v) throws VisiteurException {
         return v.visit(this);
     }
 
+    /**
+     * Permet au visiteur de connaitre la classe
+     * @param v visiteur
+     * @return JPanel
+     */
     @Override
     public JPanel acceptJPanel(GeoObjectVisiteur<JPanel> v) throws VisiteurException {
         return v.visit(this);
