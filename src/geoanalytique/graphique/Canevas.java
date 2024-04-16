@@ -75,21 +75,53 @@ public class Canevas extends JPanel {
         /*  Part du milieu du repère trace la graduation par pas de 50 jusqu'à la fin du repère */
         for (int i = this.getWidth()/2; i < this.getWidth(); i += 50) {
             g.drawLine(i, this.getHeight()/2 - 5, i, this.getHeight()/2 + 5);
+            GTexte t = new GTexte(
+                Integer.toString(
+                    (i - this.getWidth()/2) / 50
+                ), 
+                new GCoordonnee(i + 5, this.getHeight()/2 + 15)
+            );
+            t.setCouleur(Color.BLACK);
+            t.dessiner(g);
         }
 
         /* Part du milieu du repère trace la graduation par pas de 50 jusqu'au début du repère */
         for (int i = this.getWidth()/2; i > 0; i -= 50) {
             g.drawLine(i, this.getHeight()/2 - 5, i, this.getHeight()/2 + 5);
+            GTexte t = new GTexte(
+                Integer.toString(
+                    (i - this.getWidth()/2) / 50
+                ), 
+                new GCoordonnee(i + 5, this.getHeight()/2 + 15)
+            );
+            t.setCouleur(Color.BLACK);
+            t.dessiner(g);
         }
 
         /* Part du milieu du repère trace la graduation par pas de 50 jusqu'en haut du repère */
         for (int i = this.getHeight()/2; i > 0; i -= 50) {
             g.drawLine(this.getWidth()/2 - 5, i, this.getWidth()/2 + 5, i);
+            GTexte t = new GTexte(
+                Integer.toString(
+                    (this.getHeight()/2 - i) / 50
+                ), 
+                new GCoordonnee(this.getWidth()/2 + 5, i + 15)
+            );
+            t.setCouleur(Color.BLACK);
+            t.dessiner(g);
         }
 
         /* Part du milieu du repère trace la graduation par pas de 50 jusqu'en bas du repère */
         for (int i = this.getHeight()/2; i < this.getHeight(); i += 50) {
             g.drawLine(this.getWidth()/2 - 5, i, this.getWidth()/2 + 5, i);
+            GTexte t = new GTexte(
+                Integer.toString(
+                    (this.getHeight()/2 - i) / 50
+                ), 
+                new GCoordonnee(this.getWidth()/2 + 5, i + 15)
+            );
+            t.setCouleur(Color.BLACK);
+            t.dessiner(g);
         }
     }
 
