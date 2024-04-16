@@ -2,6 +2,9 @@ package geoanalytique.model;
 
 import java.awt.Color;
 
+/**
+ * Classe Losange
+ */
 public class Losange extends Polygone {
 
     private static int compteur = 0;

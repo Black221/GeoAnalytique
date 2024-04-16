@@ -4,9 +4,12 @@ import javax.swing.*;
 
 import geoanalytique.model.*;
 
-public class Presentateur implements GeoObjectVisiteur<JPanel> {
+/**
+ * Classe permettant d'afficher les objets géométriques sous  forme de tableau
+ */
+public class Afficheur implements GeoObjectVisiteur<JPanel> {
     
-    public Presentateur() {}
+    public Afficheur() {}
     /*
     * |   | x | y |
     * |---|---|---|

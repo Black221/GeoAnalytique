@@ -1,9 +1,9 @@
 package geoanalytique;
-import geoanalytique.controleur.GeoAnalytiqueControleur;
+import geoanalytique.controleur.*;
 
 public class Main {
 
     public static void main(String[] args) {
-        GeoAnalytiqueControleur controleur = new GeoAnalytiqueControleur();
+        new GeoAnalytiqueControleur();
     }
 }

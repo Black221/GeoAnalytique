@@ -16,10 +16,8 @@ public class Segment extends  Droite{
 
     /**
      * Constructeur de la classe Segment
-     * @param p1: premier point du segment
-     * @param p2: deuxième point du segment
-     * 
-     * @description: Crée un segment avec deux points
+     * @param p1 premier point du segment
+     * @param p2 deuxième point du segment
      */
     public Segment (Point p1, Point p2) {
         super(p1, p2);
@@ -29,9 +27,9 @@ public class Segment extends  Droite{
 
     /**
      * Constructeur de la classe Segment
-     * @param p1: premier point du segment
-     * @param p2: deuxième point du segment
-     * @param couleur: couleur du segment
+     * @param p1 premier point du segment
+     * @param p2 deuxième point du segment
+     * @param couleur couleur du segment
      */
     public Segment (Point p1, Point p2, Color couleur) {
         super(p1, p2, couleur);
@@ -54,7 +52,7 @@ public class Segment extends  Droite{
 
     /**
      * Retourne la longueur du segment
-     * @return: la longueur du segment avec deux points
+     * @return la longueur du segment avec deux points
      */
     public double longueur() {
         return Math.sqrt(
@@ -66,7 +64,7 @@ public class Segment extends  Droite{
 
     /**
      * Retourne le milieu du segment
-     * @return: le milieu du segment
+     * @return le milieu du segment
      */
     public Point getMilieu() {
         return new Point(

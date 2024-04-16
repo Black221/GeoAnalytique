@@ -4,6 +4,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
+/**
+ * Classe Canevas
+ */
 public class Canevas extends JPanel {
 
     private ArrayList<Graphique> graphiques;

@@ -22,8 +22,8 @@ public interface Operation {
     
     /**
      * Permet d'affecter les arguments en fonction de leur position.
-     * @param numero: numero d'argument devant etre modifie
-     * @param obj: valeur passer en argument
+     * @param numero numero d'argument devant etre modifie
+     * @param obj valeur passer en argument
      * @throws ArgumentOperationException 
      * @throws IncorrectTypeOperationException 
      */
@@ -31,7 +31,7 @@ public interface Operation {
     
     /**
      * Cette fonction permet de connaitre la classe demandee pour l'argument numero.
-     * @param numero: numero de l'argument défini dans le type
+     * @param numero numero de l'argument défini dans le type
      * @return Renvoie la classe de l'argument numero
      */
     Class<?> getClassArgument(int numero) throws ArgumentOperationException;
@@ -44,7 +44,7 @@ public interface Operation {
     
     /**
      * Permet de donner à l'utilisateur la description complète pour l'argument numero
-     * @param numero numero de l'argument concerne
+     * @param num numero de l'argument concerne
      * @return Renvoie la description de l'argument specifie
      */
     String getDescriptionArgument(int num) throws ArgumentOperationException;

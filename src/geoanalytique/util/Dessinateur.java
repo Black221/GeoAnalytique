@@ -4,6 +4,9 @@ import geoanalytique.exception.VisiteurException;
 import geoanalytique.graphique.*;
 import geoanalytique.model.*;
 
+/**
+ * Classe permettant le dessin des objets géométriques
+ */
 public class Dessinateur implements GeoObjectVisiteur<Graphique> {
     
     private Viewport viewport;

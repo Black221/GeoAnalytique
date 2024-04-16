@@ -6,7 +6,9 @@ import geoanalytique.util.EnumBoutons.*;
 
 import java.awt.*;
 
-
+/**
+ * Vue contenant les boutons de l'application
+ */
 public class GeoBoutonsView extends JPanel {
 
     private JPanel panelOutils;
@@ -21,11 +23,16 @@ public class GeoBoutonsView extends JPanel {
 
     private JButton boutons[][] = new JButton[3][];
 
+    /**
+     * Class enumerer pour les types de boutons
+     */
     public static enum BoutonType {
         OUTILS, FIGURES, COULEURS
     }
     
-    
+    /**
+     * Constructeur de la classe GeoBoutonsView
+     */
     public GeoBoutonsView() {
         super();
         this.init();
@@ -117,25 +124,41 @@ public class GeoBoutonsView extends JPanel {
     }
 
     /**
-     * 
-     * @return
+     * Renvoie les boutons outils
+     * @return list des boutons outils
      */
     public JButton [] getBoutonsOutils() {
         return this.boutonsOutils;
     }
 
+    /**
+     * Renvoie les boutons de figures
+     * @return list des boutons de figures
+     */
     public JButton [] getBoutonsFigures() {
         return this.boutonsFigures;
     }
 
+    /**
+     * Renvoie les boutons de couleurs
+     * @return list des boutons de couleurs
+     */
     public JButton [] getBoutonsCouleurs() {
         return this.boutonsCouleurs;
     }
 
+    /**
+     * Renvoie les boutons
+     * @return list des boutons
+     */
     public JButton [][] getBoutons() {
         return this.boutons;
     }
 
+    /**
+     * Renvoie le bouton effacer
+     * @return le bouton effacer
+     */
     public JButton getEffacer() {
         return this.effacer;
     }

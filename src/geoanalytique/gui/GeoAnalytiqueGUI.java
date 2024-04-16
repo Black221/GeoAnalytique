@@ -6,6 +6,9 @@ import geoanalytique.view.*;
 
 import java.awt.*;
 
+/**
+ * Classe qui represente la fenetre principale de l'application
+ */
 public class GeoAnalytiqueGUI extends JFrame {
     
     private GeoAnalytiqueView panelRepere;

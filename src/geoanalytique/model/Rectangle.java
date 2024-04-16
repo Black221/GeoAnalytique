@@ -1,5 +1,8 @@
 package geoanalytique.model;
 import java.awt.Color;
+/**
+ * Classe Rectangle
+ */
 public class Rectangle extends Polygone {
 
     private static int compteur = 0;

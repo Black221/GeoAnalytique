@@ -7,6 +7,9 @@ import geoanalytique.exception.VisiteurException;
 import geoanalytique.graphique.Graphique;
 import geoanalytique.util.GeoObjectVisiteur;
 
+/**
+ * Classe Ellipses
+ */
 public class Ellipse extends Surface {
         
     private static int compteur = 0;

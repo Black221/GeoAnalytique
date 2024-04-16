@@ -4,7 +4,7 @@ import javax.swing.*;
 
 import geoanalytique.exception.VisiteurException;
 import geoanalytique.model.GeoObject;
-import geoanalytique.util.Presentateur;
+import geoanalytique.util.Afficheur;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class GeoInfoView extends JPanel {
     
     private ArrayList<GeoObject> objets;
-    private Presentateur presentateur = new Presentateur();
+    private Afficheur presentateur = new Afficheur();
     JPanel container;
     /**
      * Constructeur de la classe GeoInfoView

@@ -3,12 +3,18 @@ package geoanalytique.graphique;
 import java.awt.Graphics;
 import java.awt.Color;
 
+/**
+ * 
+ */
 public class GPolygone extends Graphique {
     
     private GLigne [] lignes;
     private GCoordonnee [] sommets;
     
-
+    /**
+     * Constructeur de la classe GPolygone
+     * @param lignes
+     */
     public GPolygone(GLigne [] lignes) {
         this.lignes = lignes;
         this.sommets = new GCoordonnee[lignes.length];
@@ -17,6 +23,11 @@ public class GPolygone extends Graphique {
         }
     }
 
+    /**
+     * Constructeur de la classe GPolygone
+     * @param lignes
+     * @param couleur
+     */
     public GPolygone(GLigne [] lignes, Color couleur) {
         this.lignes = lignes;
         for (GLigne l : lignes) {
@@ -24,14 +35,25 @@ public class GPolygone extends Graphique {
         }
     }
 
+    /**
+     * permet de récupérer les lignes
+     * @return
+     */
     public GLigne [] getLignes() {
         return lignes;
     }
 
+    /**
+     * permet de récupérer les sommets
+     * @return
+     */
     public GCoordonnee [] getSommets() {
         return sommets;
     }
 
+    /**
+     * permet de modifier les lignes
+     */
     @Override
     public void dessiner(Graphics g) {
         g.setColor(this.getCouleur());

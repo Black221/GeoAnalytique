@@ -12,8 +12,11 @@ import geoanalytique.view.*;
 
 import java.awt.Color;
 import java.awt.event.*;
+import java.util.ArrayList;
 
-
+/**
+ * Controleur
+ */
 public class GeoAnalytiqueControleur implements MouseListener {
 
     private GeoAnalytiqueView panelRepere;
@@ -32,29 +35,16 @@ public class GeoAnalytiqueControleur implements MouseListener {
     private JButton boutonOutilActif;
     private String outilSelectionne;
 
-    private JButton [] boutonsActifs = new JButton[3];
-
     private Canevas canevas;
     private Viewport viewport;
     private Dessinateur dessinateur;
 
     private Usine usine = new Usine();
+    private GCoordonnee [] cliques = new GCoordonnee[2];
 
-    class MyBoutonListener implements ActionListener {
-
-        private JButton button;
-        public MyBoutonListener(JButton button) {
-            this.button = button;
-        }
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            this.button.setBorder(BorderFactory.createEmptyBorder());
-            this.button = (JButton) e.getSource();
-            this.button.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
-        }
-    }
-
+    /**
+     * Constructeur
+     */
     public GeoAnalytiqueControleur() {
         GeoAnalytiqueGUI gui = new GeoAnalytiqueGUI();
 
@@ -70,20 +60,6 @@ public class GeoAnalytiqueControleur implements MouseListener {
         this.evenements();
     }
 
-    public void evenements2() {
-
-        JButton [][] boutons = this.panelBouton.getBoutons();
-
-        for (int i = 0; i < boutons.length; i++) {
-            this.boutonsActifs[i] = boutons[i][0];
-            this.boutonsActifs[i].setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
-
-            for (int j = 0; j < boutons[i].length; j++) {
-                boutons[i][j].addActionListener(new MyBoutonListener(this.boutonsActifs[i]));
-            }
-        }
-    }
-
 
     /**
      * Permet de gérer les événements des boutons
@@ -94,13 +70,12 @@ public class GeoAnalytiqueControleur implements MouseListener {
         this.boutonCouleurActif = boutonsCouleurs[0];
         this.boutonCouleurActif.setBorder(BorderFactory.createLineBorder(Color.BLACK, 4));
 
-        for (int i = 0; i < 8; i++) {
-            this.boutonsCouleurs[i].addActionListener(e -> {
+        for (JButton jButton : boutonsCouleurs) { // ajouter un evenement sur chaque bouton
+            jButton.addActionListener(e -> {
                 this.boutonCouleurActif.setBorder(BorderFactory.createEmptyBorder());
                 this.boutonCouleurActif = (JButton) e.getSource();
                 this.boutonCouleurActif.setBorder(BorderFactory.createLineBorder(Color.BLACK, 4));
-                this.couleur = (Color) boutonCouleurActif.getBackground();
-                System.out.println(this.couleur);
+                this.couleur = boutonCouleurActif.getBackground();
             });
         }
 
@@ -110,8 +85,8 @@ public class GeoAnalytiqueControleur implements MouseListener {
         this.boutonFormeActif.setBorder(BorderFactory.createLineBorder(Color.BLACK, 4));
         this.formSelectionne = boutonFormeActif.getText();
 
-        for (int i = 0; i < 9; i++) {
-            this.boutonsFigures[i].addActionListener(e -> {
+        for (JButton jButton : boutonsFigures) {
+            jButton.addActionListener(e -> {
                 this.boutonFormeActif.setBorder(BorderFactory.createEmptyBorder());
                 this.boutonFormeActif = (JButton) e.getSource();
                 this.boutonFormeActif.setBorder(BorderFactory.createLineBorder(Color.BLACK, 4));
@@ -125,8 +100,8 @@ public class GeoAnalytiqueControleur implements MouseListener {
         this.boutonOutilActif.setBorder(BorderFactory.createLineBorder(Color.BLACK, 4));
         this.outilSelectionne = boutonOutilActif.getText();
 
-        for (int i = 0; i < 4; i++) {
-            this.boutonsOutils[i].addActionListener(e -> {
+        for (JButton jButton : boutonsOutils) {
+            jButton.addActionListener(e -> {
                 this.boutonOutilActif.setBorder(BorderFactory.createEmptyBorder());
                 this.boutonOutilActif = (JButton) e.getSource();
                 this.boutonOutilActif.setBorder(BorderFactory.createLineBorder(Color.BLACK, 4));
@@ -139,7 +114,6 @@ public class GeoAnalytiqueControleur implements MouseListener {
         });
     }
 
-    private GCoordonnee [] cliques = new GCoordonnee[2];
 
     /**
      * Permet de recuperer les cordoonnées de la souris pressée
@@ -175,13 +149,14 @@ public class GeoAnalytiqueControleur implements MouseListener {
      */
     public void recalculePoints() {
         try {
-            this.canevas.clear();
+            this.canevas.clear(); // supprime les objects graphiques
+            // recuperer les objets geometriques
             for (GeoObject obj : this.panelInfo.getObject()) {
                 this.canevas.addGraphique(
-                    obj.accept(dessinateur)
+                    obj.accept(dessinateur) // retourne un objet graphique
                 );
             }
-            this.canevas.repaint();
+            this.canevas.repaint(); // redessine les objets
             this.panelInfo.afficherInfo();
         } catch (VisiteurException e) {
             e.printStackTrace();
@@ -200,14 +175,24 @@ public class GeoAnalytiqueControleur implements MouseListener {
         );
     }
 
+    /**
+     * Permet de selectionner un objet
+     * @param obj: objet à selectionner
+     */
     public void selectionner(GeoObject obj) {
         obj.setEstSelectionne(true);
     }
 
+    /**
+     * Permet de deselectionner un objet
+     */
     public void deselectionner() {
 
     }
 
+    /**
+     * Permet d'effacer les objets
+     */
     public void effacer(){
         this.canevas.clear();
         this.panelInfo.clearObject();

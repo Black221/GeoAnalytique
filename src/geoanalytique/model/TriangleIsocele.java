@@ -2,6 +2,9 @@ package geoanalytique.model;
 
 import java.awt.Color;
 
+/**
+ * Classe TriangleIsocele
+ */
 public class TriangleIsocele extends Triangle {
     
     private static int compteur = 0;

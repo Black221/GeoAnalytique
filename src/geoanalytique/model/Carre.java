@@ -1,6 +1,9 @@
 package geoanalytique.model;
 import java.awt.Color;
 
+/**
+ * Classe Carre
+ */
 public class Carre extends Rectangle{
     
     private static int compteur = 0;
