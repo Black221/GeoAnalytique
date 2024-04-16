@@ -41,8 +41,4 @@ public class GLigne extends Graphique {
         //line weight
         g.drawLine((int)p1.getX(), (int)p1.getY(), (int)p2.getX(), (int)p2.getY());
     }
-
-    public String toString() {
-        return "Ligne de " + p1 + " à " + p2;
-    };
 }

@@ -5,17 +5,30 @@ import java.awt.Color;
 
 public class EnumBoutons {
 
+    /**
+     * Class enumerer pour les outils
+     */
     public enum Outils {
         DESSINER, SELECTIONNER, ZOOMAVANT, ZOOMARRIERE
     }
 
+    /**
+     * Class enumerer pour les figures
+     */
     public enum Figures {
         POINT, SEGMENT, DROITE, TRIANGLE, CARRE, RECTANGLE, LOSANGE, CERCLE, ELLIPSE
     }
 
+    /**
+     * Class enumerer pour les types de boutons
+     */
     public enum Couleurs {
         BLANC, NOIR, GRIS, MARRON, ROUGE, JAUNE, VERT, BLEU;
 
+        /**
+         * Retourne la couleur correspondante
+         * @return
+         */
         public Color getColor() {
             switch (this) {
                 case BLANC:
@@ -40,7 +53,9 @@ public class EnumBoutons {
         }
     }
     
+    /**
+     * Constructeur de la classe EnumBoutons
+     */
     public EnumBoutons() {
     }
-
 }

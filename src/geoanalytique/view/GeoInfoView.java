@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class GeoInfoView extends JPanel {
     
     private ArrayList<GeoObject> objets;
-    private Afficheur presentateur = new Afficheur();
+    private Afficheur afficheur = new Afficheur();
     JPanel container;
     /**
      * Constructeur de la classe GeoInfoView
@@ -51,7 +51,7 @@ public class GeoInfoView extends JPanel {
         this.objets.add(obj);
         
         try {
-            this.container.add(obj.acceptJPanel(presentateur));
+            this.container.add(obj.acceptJPanel(afficheur));
         } catch (VisiteurException e) {
             
         }

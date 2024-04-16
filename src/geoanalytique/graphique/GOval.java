@@ -47,8 +47,9 @@ public class GOval extends Graphique {
     @Override
     public void dessiner(Graphics g) {
         // Dessiner une ellipse avec le centre (x, y) et les demi-axes spécifiés si nécessaire
-
         g.setColor(this.getCouleur());
         g.drawOval((int)(this.centre.getX() - demiGrandAxe), (int)(this.centre.getY() - demiPetitAxe), (int)(2 * demiGrandAxe), (int)(2 * demiPetitAxe));
+        // dessiner le center
+        centre.dessiner(g);
     }
 }

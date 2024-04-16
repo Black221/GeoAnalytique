@@ -47,21 +47,21 @@ public class Dessinateur implements GeoObjectVisiteur<Graphique> {
     public Graphique visit(Droite d) throws VisiteurException {
 
         // y = ax + b
-        Point p1 = new Point(
+        Point p1 = new Point( // pour x=xMin, on calcule y
             this.viewport.getXMin(),
             d.getY(this.viewport.getXMin())
         );
 
-        Point p2 = new Point(
+        Point p2 = new Point(// pour x=xMax, on calcule y
             this.viewport.getXMax(),
             d.getY(this.viewport.getXMax())
         );
 
-        GLigne gligne = new GLigne(
+        GLigne gligne = new GLigne( // on dessine la droite
             this.viewport.convert(p1),
             this.viewport.convert(p2)
         );
-        gligne.setCouleur(d.getCouleur());
+        gligne.setCouleur(d.getCouleur()); // on met la couleur
         return gligne;
     }
 
@@ -70,8 +70,9 @@ public class Dessinateur implements GeoObjectVisiteur<Graphique> {
      * @param e Ellipse
      */
     public Graphique visit(Ellipse e) throws VisiteurException {
-        GCoordonnee centre = this.viewport.convert(e.getCentre());
+        GCoordonnee centre = this.viewport.convert(e.getCentre()); // converti en GCoordonee le centre
 
+        // on normalise le demi grand axe en multipliant par le facteur de normalisation : 50
         double demiGrandAxe = this.viewport.normalizer(e.getDemiGrandAxe());
         double demiPetitAxe = this.viewport.normalizer(e.getDemiPetitAxe());
 
@@ -85,9 +86,10 @@ public class Dessinateur implements GeoObjectVisiteur<Graphique> {
      * @param p Polygone
      */
     public Graphique visit(Polygone p) throws VisiteurException {
-        Point [] sommets = p.getSommets();
+        Point [] sommets = p.getSommets(); // on recupere les sommets
 
-        GLigne [] lignes = new GLigne[p.getCotes().length];
+        GLigne [] lignes = new GLigne[p.getCotes().length]; // on cree un tableau de lignes
+        // on cree un GPolygone en convertissant les sommets en GLigne
         for (int i = 0; i < p.getCotes().length; i++) {
             lignes[i] = new GLigne(
                 viewport.convert(sommets[i]), 

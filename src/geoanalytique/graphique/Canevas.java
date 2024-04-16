@@ -10,6 +10,7 @@ import java.util.ArrayList;
 public class Canevas extends JPanel {
 
     private ArrayList<Graphique> graphiques;
+    private Graphique preview;
     /**
      * Constructeur
      */
@@ -33,6 +34,14 @@ public class Canevas extends JPanel {
     public void addGraphique (Graphique g) {
         this.graphiques.add(g);
         System.out.println(graphiques.size());
+    }
+
+    public void setPreview (Graphique g) {
+        this.preview = g;
+    }
+
+    public Graphique getPreview () {
+        return this.preview;
     }
 
     /**
@@ -89,10 +98,13 @@ public class Canevas extends JPanel {
      * @param g graphic
      */
     public void paint(Graphics g) {
-        super.paint(g);
-        this.repere(g);
+        super.paint(g); // on appelle la méthode paint de la classe mère
+        this.repere(g); // on dessine le repère
         for (Graphique graphique : graphiques) {
-            graphique.dessiner(g);
+            graphique.dessiner(g); // on dessine les graphiques
+        }
+        if (this.preview != null) {
+            this.preview.dessiner(g); // on dessine le preview
         }
     };
 }

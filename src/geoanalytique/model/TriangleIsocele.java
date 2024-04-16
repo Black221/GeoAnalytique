@@ -18,7 +18,8 @@ public class TriangleIsocele extends Triangle {
     public TriangleIsocele (Point p1, Point p2, double base) {
         super(
             p1, p2,
-            new Point(
+            // on calcule le troisieme point
+            new Point( // x = x1 + sqrt(b^2 - (x2 - x1)^2 / 4) | y = y1 + sqrt(b^2 - (x2 - x1)^2 / 4)
                 p1.getX() + Math.sqrt(Math.pow(base, 2) - Math.pow((p2.getX() - p1.getX()) / 2, 2)),
                 p1.getY() + Math.sqrt(Math.pow(base, 2) - Math.pow((p2.getX() - p1.getX()) / 2, 2))
             )

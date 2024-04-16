@@ -17,7 +17,7 @@ import java.util.ArrayList;
 /**
  * Controleur
  */
-public class GeoAnalytiqueControleur implements MouseListener {
+public class GeoAnalytiqueControleur implements MouseListener, MouseMotionListener {
 
     private GeoAnalytiqueView panelRepere;
     private GeoInfoView panelInfo;
@@ -48,15 +48,16 @@ public class GeoAnalytiqueControleur implements MouseListener {
     public GeoAnalytiqueControleur() {
         GeoAnalytiqueGUI gui = new GeoAnalytiqueGUI();
 
-        this.panelRepere = gui.getPanelRepere();
-        this.panelInfo = gui.getPanelInfo();
+        this.panelRepere = gui.getPanelRepere(); // recuperer le panel repere
+        this.panelInfo = gui.getPanelInfo(); // recuperer le panel info
         this.panelBouton = gui.getPanelBouton();
 
         this.viewport = new Viewport(panelRepere.getWidth(), panelRepere.getHeight());
         this.canevas = panelRepere.getCanevas();
         this.dessinateur = new Dessinateur(viewport);
 
-        this.panelRepere.addMouseListener(this);
+        this.panelRepere.addMouseListener(this); // ajouter les evenements souris
+        this.panelRepere.addMouseMotionListener(this);// ajouter les evenements souris
         this.evenements();
     }
 
@@ -121,7 +122,7 @@ public class GeoAnalytiqueControleur implements MouseListener {
      */
     @Override
     public void mousePressed(MouseEvent e) {
-        cliques[0] = new GCoordonnee(e.getX(), e.getY());
+        cliques[0] = new GCoordonnee(e.getX(), e.getY()); // recuperer les coordonnées de la souris pressée
     }
 
     /**
@@ -130,10 +131,15 @@ public class GeoAnalytiqueControleur implements MouseListener {
      */
     @Override
     public void mouseReleased(MouseEvent e) {
-        cliques[1] = new GCoordonnee(e.getX(), e.getY());
-        ajouterObject();
-        recalculePoints();
+        cliques[1] = new GCoordonnee(e.getX(), e.getY()); // recuperer les coordonnées de la souris relachée
+        ajouterObject(); // ajouter l'objet
+        recalculePoints();// recalculer les points
+        this.canevas.setPreview(null);// supprimer les objets preview
+        cliques = new GCoordonnee[2]; // reinitialiser les coordonnées
     }
+
+    @Override
+    public void mouseMoved(MouseEvent e) { }
 
     @Override
     public void mouseExited(MouseEvent e) { }
@@ -143,6 +149,25 @@ public class GeoAnalytiqueControleur implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) { }
+
+    @Override
+    public void mouseDragged(MouseEvent e) {
+        try {
+            if (cliques[0] != null) {
+                Point p1 = this.viewport.convert(cliques[0]); // convertir les coordonnées
+                Point p2 = this.viewport.convert(new GCoordonnee(e.getX(), e.getY())); // convertir les coordonnées
+                this.canevas.setPreview(null); // supprime les objects
+                this.canevas.setPreview(// ajoute un objet preview
+                    usine.produire(p1, p2, formSelectionne, this.couleur.getRGB()).accept(dessinateur)
+                );
+                recalculePoints();// recalculer les points
+            }
+        } catch (VisiteurException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+
 
     /**
      * Permet de recalculer les points et de les dessiner
@@ -167,12 +192,14 @@ public class GeoAnalytiqueControleur implements MouseListener {
      * Permet d'ajouter un objet géométrique
      */
     public void ajouterObject() {
-        Point p1 = viewport.convert(cliques[0]);
-        Point p2 = viewport.convert(cliques[1]);
-
+        Point p1 = viewport.convert(cliques[0]); // convertir les coordonnées
+        Point p2 = viewport.convert(cliques[1]); // convertir les coordonnées
+        // produire un objet geometrique
+        GeoObject obj = usine.produire(p1, p2, formSelectionne, this.couleur.getRGB());
         this.panelInfo.addGeoObject(
-            usine.produire(p1, p2, formSelectionne, this.couleur.getRGB())
+            obj // ajouter l'objet
         );
+        this.selectionner(obj); // selectionner l'objet
     }
 
     /**

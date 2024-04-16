@@ -13,7 +13,7 @@ import geoanalytique.util.GeoObjectVisiteur;
  */
 public abstract class Polygone extends Surface {
 
-    public Segment cotes[];
+    public Segment cotes[]; // Liste des cotes du polygone
 
     /**
      * Constructeur de la classe Polygone

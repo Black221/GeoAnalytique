@@ -32,6 +32,7 @@ public class Usine {
             Math.min(p1.getY(), p2.getY())
         );
 
+        // On cree l'objet geometrique suivant le type
         switch (type) {
             case "POINT":
                 obj = new Point(p1.getX(), p1.getY());
@@ -88,6 +89,7 @@ public class Usine {
                     Math.abs(l1),
                     Math.abs(l2)
                 );
+            
                 break;
             default:
                 break;

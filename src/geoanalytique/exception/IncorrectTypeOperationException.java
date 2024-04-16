@@ -5,22 +5,22 @@ package geoanalytique.exception;
 public class IncorrectTypeOperationException extends Exception{
     /**
      * Constructeur de l'exception IncorrectTypeOperationException avec un message d'erreur donné en paramètre 
-     * @param message
+     * @param message message d'erreur
      */
     public IncorrectTypeOperationException(String message){
         super(message);
     }
     /**
      * Constructeur de l'exception IncorrectTypeOperationException avec un message d'erreur et une cause donnée en paramètre
-     * @param message
-     * @param cause
+     * @param message message d'erreur
+     * @param cause cause de l'erreur
      */
     public IncorrectTypeOperationException(String message, Throwable cause){
         super(message, cause);
     }
     /**
      * Constructeur de l'exception IncorrectTypeOperationException avec une cause donnée en paramètre
-     * @param cause
+     * @param cause     cause de l'erreur   
      */
     public IncorrectTypeOperationException(Throwable cause){
         super(cause);
